@@ -1,8 +1,11 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
-from .views import *
+from . import views
 
 app_name = 'memories'
 urlpatterns = [
-    path('', home, name='home'),
+    path('', views.home, name='home'),
+    path('login/', views.login, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
