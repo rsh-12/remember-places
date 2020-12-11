@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,7 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'home'
 
