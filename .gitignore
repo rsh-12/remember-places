@@ -87,3 +87,4 @@ ENV/
 
 /test/staticfiles/
 db.sqlite3
+.idea
