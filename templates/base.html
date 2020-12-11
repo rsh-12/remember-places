@@ -11,9 +11,19 @@
 </head>
 <body>
 
-{% block content %}
+<div>
+    {% include 'parts/header.html' %}
+</div>
 
-{% endblock %}
+<div>
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+<div>
+    {% include 'parts/footer.html' %}
+</div>
 
 </body>
 </html>
