@@ -123,10 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = 'logout/'
+LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_FACEBOOK_KEY = secret_vars.FB_KEY
 SOCIAL_AUTH_FACEBOOK_SECRET = secret_vars.FB_SECRET
