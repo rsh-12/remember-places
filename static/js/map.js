@@ -42,9 +42,6 @@ function init() {
     // правой кнопки мыши в любой точке карты.
     // При возникновении такого события покажем всплывающую подсказку
     // в точке щелчка.
-    myMap.events.add('contextmenu', function (e) {
-        myMap.hint.open(e.get('coords'), 'Кто-то щелкнул правой кнопкой');
-    });
 
     // Скрываем хинт при открытии балуна.
     myMap.events.add('balloonopen', function (e) {
