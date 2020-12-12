@@ -5,6 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'memories:login' %}">Login</a>
-    <a href="{% url 'memories:profile' %}">Profile</a>
+
+    <button>
+        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+    </button>
+
+    <br>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos explicabo repellat unde.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam beatae consequatur dignissimos doloribus
+            eligendi esse est itaque maxime pariatur quia, recusandae reprehenderit similique sit soluta tempora
+            temporibus ut voluptatibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam beatae consequatur dignissimos doloribus
+            eligendi esse est itaque maxime pariatur quia, recusandae reprehenderit similique sit soluta tempora
+            temporibus ut voluptatibus.</p>
+    </div>
+
 {% endblock %}

@@ -11,6 +11,6 @@ def login(request):
     return render(request, 'memories/login.html', {})
 
 
-@login_required
+# @login_required
 def profile(request):
     return render(request, 'memories/profile.html')
