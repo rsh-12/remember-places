@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
 
-# Create your views here.
+
+def home(request):
+    return render(request, 'memories/home.html')
+
+
+
+
+# @login_required
+def profile(request):
+    return render(request, 'memories/profile.html')
