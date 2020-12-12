@@ -11,7 +11,7 @@
     <ul>
         {% for place in places %}
             <li>
-                <p>{{ place }}</p>
+                <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
             </li>
         {% empty %}
             You do not have any places yet

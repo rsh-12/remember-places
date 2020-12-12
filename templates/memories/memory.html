@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    My sweet memories
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <h3>Mem by id</h3>
+
+    <div>
+        {{ place.id }} <br>
+        {{ place.name }} <br>
+        {{ place.description }} <br>
+        {{ place.created_at }} <br>
+    </div>
+
+    <hr>
+{% endblock %}
