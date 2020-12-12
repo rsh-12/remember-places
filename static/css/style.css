@@ -1,4 +1,52 @@
-#id_latitude, #id_longitude {
-    color: red;
+body, html {
+    width: 100%;
+    height: 100%;
+}
 
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+.footer,
+.push {
+    height: 50px;
+}
+
+footer {
+    background-color: #10104c;
+    padding: 40px 0 70px 0;
+    border-top: 0 solid black;
+    box-shadow: 2px 2px 20px 5px #938d8d;
+}
+
+.header {
+    background-color: #10104c;
+    color: white;
+}
+
+.github-link > a {
+    color: white;
+}
+
+.fb {
+    width: 100px;
+    margin: 20px auto;
+}
+
+.fb-link {
+    color: white;
+}
+
+.fb-text {
+    font-size: 14px;
+    color: #938d8d;
+}
+
+.fb-btn {
+    background-color: #10104c;
+}
+
+.fb-btn > a:hover {
+    color: white;
 }
