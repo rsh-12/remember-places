@@ -88,4 +88,10 @@ ENV/
 /test/staticfiles/
 db.sqlite3
 secret_vars.py
+<<<<<<< HEAD
 memories/migrations
+=======
+
+#
+memories/migrations
+>>>>>>> test
