@@ -18,5 +18,11 @@ def memories(request):
     return render(request, 'memories/memories.html', context)
 
 
+def memory(request, pk):
+    place = Place.objects.get(id=pk)
+    context = {'place': place}
+    return render(request, 'memories/memory.html', context)
+
+
 def map(request):
     return render(request, 'memories/map.html')
