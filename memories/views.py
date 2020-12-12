@@ -30,8 +30,9 @@ def create_place(request):
     if request.method == 'POST':
         my_form = RawPlaceForm(request.POST)
         if my_form.is_valid():
-            print(my_form.cleaned_data)
-            my_form = RawPlaceForm()
+            user = User.objects.get(id=request.user.id)
+            place = Place.objects.create(**my_form.cleaned_data)
+            place.users.add(user)
         else:
             print(my_form.errors)
     context = {'form': my_form}
