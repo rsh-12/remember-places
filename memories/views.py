@@ -16,7 +16,7 @@ def home(request):
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
-    paginator = Paginator(places, 2)
+    paginator = Paginator(places, 10)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
