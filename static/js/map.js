@@ -2,8 +2,8 @@ ymaps.ready(init);
 var myMap;
 
 function getCoords(x, y) {
-    document.getElementById('x').value=x
-    document.getElementById('y').value=y
+    document.getElementById('id_latitude').value=x
+    document.getElementById('id_longitude').value=y
 }
 
 
@@ -44,8 +44,8 @@ function init() {
     // в точке щелчка.
 
     // Скрываем хинт при открытии балуна.
-    myMap.events.add('balloonopen', function (e) {
-        myMap.hint.close();
-    });
+    // myMap.events.add('balloonopen', function (e) {
+    //     myMap.hint.close();
+    // });
 
 }
