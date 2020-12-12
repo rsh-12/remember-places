@@ -10,3 +10,7 @@ def home(request):
 # @login_required
 def memories(request):
     return render(request, 'memories/memories.html')
+
+
+def map(request):
+    return render(request, 'memories/map.html')
