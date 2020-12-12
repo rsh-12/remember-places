@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
 from .forms import RawPlaceForm
 from .models import Place
@@ -15,8 +16,12 @@ def home(request):
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
+    paginator = Paginator(places, 2)
 
-    context = {'user': user, 'places': places}
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'user': user, 'places': places, 'page_obj': page_obj}
     return render(request, 'memories/memories.html', context)
 
 
