@@ -13,17 +13,25 @@
 </head>
 <body>
 {% include 'parts/header.html' %}
-
-<div style="width: 70%; height: 60%; margin: 0 auto" id="map"></div>
+<div class="push"></div>
 <div class="container">
+<div style="max-width: 100%; height: 400px; margin: 0 auto" id="map"></div>
     <div>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Add">
+            {{ form.latitude }} {{ form.longitude }}
+            <div class="push"></div>
+            <p><span class="badge badge-pill badge-secondary">Name</span>
+                {{ form.name }}
+            </p>
+            <p><span class="badge badge-pill badge-secondary">Description</span>
+                {{ form.description }}
+            </p>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
+<div class="push"></div>
 {% include 'parts/footer.html' %}
 </body>
 </html>

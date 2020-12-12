@@ -12,7 +12,7 @@ def home(request):
     return render(request, 'memories/home.html')
 
 
-@login_required
+# @login_required
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
@@ -25,14 +25,14 @@ def memories(request):
     return render(request, 'memories/memories.html', context)
 
 
-@login_required
+# @login_required
 def memory(request, pk):
     place = Place.objects.get(id=pk)
     context = {'place': place}
     return render(request, 'memories/memory.html', context)
 
 
-@login_required
+# @login_required
 def create_place(request):
     my_form = RawPlaceForm()
     if request.method == 'POST':
