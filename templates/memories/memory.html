@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    My sweet memories
+    My places
 {% endblock %}
 
 {% block content %}
-    <hr>
-    <h3>Mem by id</h3>
 
-    <div>
-        {{ place.id }} <br>
-        {{ place.name }} <br>
-        {{ place.description }} <br>
-        {{ place.created_at }} <br>
-    </div>
+    {{ place.name }} <br>
+    {{ place.created_at }} <br>
+    {{ place.description }} <br>
 
-    <hr>
+
 {% endblock %}

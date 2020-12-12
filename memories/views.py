@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
+from django.utils.datastructures import MultiValueDictKeyError
+
 from .models import Place
-from .forms import PlaceForm, RawPlaceForm
+from .forms import RawPlaceForm
 
 
 def home(request):
@@ -13,7 +15,7 @@ def home(request):
 # @login_required
 def memories(request):
     user = User.objects.get(id=request.user.id)
-    places = user.place_set.all()
+    places = user.place_set.all().order_by('-created_at')
 
     context = {'user': user, 'places': places}
     return render(request, 'memories/memories.html', context)
@@ -38,3 +40,5 @@ def create_place(request):
             print(my_form.errors)
     context = {'form': my_form}
     return render(request, 'memories/map.html', context)
+
+

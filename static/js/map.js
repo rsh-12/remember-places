@@ -44,8 +44,8 @@ function init() {
     // в точке щелчка.
 
     // Скрываем хинт при открытии балуна.
-    myMap.events.add('balloonopen', function (e) {
-        myMap.hint.close();
-    });
+    // myMap.events.add('balloonopen', function (e) {
+    //     myMap.hint.close();
+    // });
 
 }
