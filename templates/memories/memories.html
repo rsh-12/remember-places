@@ -5,9 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    У вас нет ни одного воспоминания.
-
-    <div>
-        <button><a href="#">Add?</a></button>
-    </div>
+    <hr>
+    <h3>My sweet memories</h3>
+    User {{ user }}
+    <ul>
+        {% for place in places %}
+            <li>
+                <p>{{ place }}</p>
+            </li>
+        {% empty %}
+            You do not have any places yet
+            <div>
+                <button><a href="#">Add?</a></button>
+            </div>
+        {% endfor %}
+    </ul>
+    <hr>
 {% endblock %}
