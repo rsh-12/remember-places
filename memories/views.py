@@ -7,8 +7,6 @@ def home(request):
     return render(request, 'memories/home.html')
 
 
-
-
 # @login_required
-def profile(request):
-    return render(request, 'memories/profile.html')
+def memories(request):
+    return render(request, 'memories/memories.html')

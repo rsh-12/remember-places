@@ -8,5 +8,5 @@ app_name = 'memories'
 urlpatterns = [
     path('', views.home, name='home'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('profile/', views.profile, name='profile'),
+    path('memories/', views.memories, name='memories'),
 ]
