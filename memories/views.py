@@ -12,11 +12,11 @@ def home(request):
     return render(request, 'memories/home.html')
 
 
-@login_required
+# @login_required
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
-    paginator = Paginator(places, 10)
+    paginator = Paginator(places, 2)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -25,19 +25,20 @@ def memories(request):
     return render(request, 'memories/memories.html', context)
 
 
-@login_required
+# @login_required
 def memory(request, pk):
     place = Place.objects.get(id=pk)
     context = {'place': place}
     return render(request, 'memories/memory.html', context)
 
 
-@login_required
+# @login_required
 def create_place(request):
     my_form = RawPlaceForm()
     if request.method == 'POST':
         my_form = RawPlaceForm(request.POST)
         if my_form.is_valid():
+            print(my_form.cleaned_data)
             user = User.objects.get(id=request.user.id)
             place = Place.objects.create(**my_form.cleaned_data)
             place.users.add(user)

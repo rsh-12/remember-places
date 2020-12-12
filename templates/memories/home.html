@@ -6,17 +6,12 @@
 {% endblock %}
 
 {% block content %}
-
-
-    <a href="{% url 'memories:memories' %}">Mems</a>
-    <a href="{% url 'memories:map' %}">Map</a>
-
     <br>
     <div class="row">
         <div class="col-md-12">
             <section>
                 <div class="row clearmargin clearpadding row-image-txt">
-                    <div class="col-xs-12 col-sm-12 col-md-6 clearmargin clearpadding col-sm-push-6"
+                    <div class="col-xs-12 col-sm-12 col-md-6 clearmargin clearpadding col-sm-push-6 my-img"
                          style="background-image: url({% static 'images/map.png' %});background-size: cover;background-position: center;background-repeat: no-repeat;">
                         <div></div>
                     </div>
@@ -34,11 +29,17 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse explicabo sunt.</p>
 
                         <div class="fb">
-                            <span class="fb-text">Try right now!</span>
-                            <br>
-                            <button class="btn fb-btn">
-                                <a class="fb-link" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-                            </button>
+
+                            {% if user.is_authenticated %}
+                                <span class="fb-text">You are logged in</span>
+                            {% else %}
+                                <span class="fb-text">Try right now!</span>
+                                <br>
+                                <button class="btn fb-btn">
+                                    <a class="fb-link" href="{% url 'social:begin' 'facebook' %}">Login with
+                                        Facebook</a>
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

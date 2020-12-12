@@ -5,39 +5,54 @@
 {% endblock %}
 
 {% block content %}
-    <hr>
     <h3>My sweet memories</h3>
-    User {{ user.first_name }}
-    <button><a href="{% url 'memories:map' %}">Add?</a></button>
-
-    <ul>
-        {% for place in page_obj %}
-            <li>
-                <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
-                <span>{{ place.created_at }}</span>
-            </li>
-        {% empty %}
-            You do not have any places yet
-        {% endfor %}
-    </ul>
     <hr>
-
-    <h2>PAGES</h2>
+    <button class="btn btn-primary">
+        <a class="custom-link text-white" href="{% url 'memories:map' %}">Add new location</a></button>
+    <div class="push"></div>
+    <div class="page-block">
     <span>
-    {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-    {% endif %}
-
-        <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
+        <span class="pagination">
+    {% if page_obj.has_previous %}
+        <li class="page-item">
+        <a class="page-link" href="?page=1">&laquo; FIRST</a>
+        </li>
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
+        <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">PREVIOUS</a>
+        </li>
+    {% endif %}
 
+            {% if page_obj.has_next %}
+                <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">NEXT</a>
+            </li>
+
+                <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">LAST &raquo;</a>
+            </li>
+            {% endif %}
     </span>
+    </div>
+    <div class="push"></div>
+
+    {% for place in page_obj %}
+        <ul>
+            <li>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
+                    <span>{{ place.created_at }}</span>
+                </div>
+            </li>
+        </ul>
+    {% empty %}
+        <div>
+            <h4 class="text-center">
+                You do not have any places yet..
+            </h4>
+        </div>
+    {% endfor %}
     <hr>
 {% endblock %}

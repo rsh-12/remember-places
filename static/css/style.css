@@ -30,7 +30,7 @@ footer {
 }
 
 .fb {
-    width: 100px;
+    width: 120px;
     margin: 20px auto;
 }
 
@@ -49,4 +49,55 @@ footer {
 
 .fb-btn > a:hover {
     color: white;
+}
+
+.header-links {
+    color: white;
+}
+
+.header-links:hover {
+    color: #e8e5e5;
+}
+
+.my-img {
+    box-shadow: -10px -5px 20px 1px #dbd5d5;
+}
+
+#map {
+    box-shadow: 2px -10px 20px 5px #e2dede;
+}
+
+.logout-button {
+    color: black;
+    background-color: white;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.logout-button > a {
+    color: black;
+}
+
+.logout-button > a:hover {
+    color: black;
+}
+
+.header-span {
+    margin-left: 10px;
+}
+
+.custom-link:hover {
+    text-decoration: none;
+}
+
+.text-small{
+    color: #a7a0a0;
+    font-size: 10px;
+}
+
+.text-desc{
+    border: 1px solid #e8e1e1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px #d9d9d9;
 }
