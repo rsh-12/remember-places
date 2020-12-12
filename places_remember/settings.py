@@ -33,10 +33,12 @@ INSTALLED_APPS = [
     'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'social_django',
     'memories',
 ]
@@ -103,11 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-]
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -126,16 +123,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     'static'
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SITE_ID = 1
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-SITE_ID = 1
 SOCIAL_AUTH_FACEBOOK_KEY = secret_vars.FB_KEY
 SOCIAL_AUTH_FACEBOOK_SECRET = secret_vars.FB_SECRET
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
