@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Home
@@ -6,22 +7,43 @@
 
 {% block content %}
 
-    <button>
-        <a href="{% url 'social:begin' 'facebook'  %}">Login with Facebook</a>
-    </button>
 
     <a href="{% url 'memories:memories' %}">Mems</a>
     <a href="{% url 'memories:map' %}">Map</a>
 
     <br>
-    <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos explicabo repellat unde.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam beatae consequatur dignissimos doloribus
-            eligendi esse est itaque maxime pariatur quia, recusandae reprehenderit similique sit soluta tempora
-            temporibus ut voluptatibus.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam beatae consequatur dignissimos doloribus
-            eligendi esse est itaque maxime pariatur quia, recusandae reprehenderit similique sit soluta tempora
-            temporibus ut voluptatibus.</p>
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <div class="row clearmargin clearpadding row-image-txt">
+                    <div class="col-xs-12 col-sm-12 col-md-6 clearmargin clearpadding col-sm-push-6"
+                         style="background-image: url({% static 'images/map.png' %});background-size: cover;background-position: center;background-repeat: no-repeat;">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-sm-pull-6 bg-white" style="padding:20px;">
+                        <h1 class="text-left text-dark">Places remember</h1>
+                        <hr>
+                        <h4>Memorizing your favorite places is even easier with us!</h4>
+                        <p class="text-left text-black-50">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto, atque beatae
+                            cumque dolorem eaque iusto necessitatibus nisi officiis quisquam! Adipisci aperiam atque
+                            consectetur cupiditate dolorem dolorum eos explicabo fugit id itaque, iusto laboriosam
+                            maxime minus, mollitia nam neque nihil perspiciatis porro praesentium quas ratione
+                            reiciendis rem repudiandae sunt vel!
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse explicabo sunt.</p>
+
+                        <div class="fb">
+                            <span class="fb-text">Try right now!</span>
+                            <br>
+                            <button class="btn fb-btn">
+                                <a class="fb-link" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
 {% endblock %}
