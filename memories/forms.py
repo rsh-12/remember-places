@@ -10,9 +10,5 @@ class RawPlaceForm(forms.Form):
         'class': 'form form-control col-md-6',
         'placeholder': 'tell about your impressions'
     }))
-    latitude = forms.DecimalField(widget=forms.TextInput(attrs={
-        'disabled': 'true'
-    }))
-    longitude = forms.DecimalField(widget=forms.TextInput(attrs={
-        'disabled': 'true'
-    }))
+    latitude = forms.DecimalField(widget=forms.TextInput())
+    longitude = forms.DecimalField(widget=forms.TextInput())

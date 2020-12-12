@@ -15,12 +15,19 @@
 {% include 'parts/header.html' %}
 <div class="push"></div>
 <div class="container">
-<div style="max-width: 100%; height: 400px; margin: 0 auto" id="map"></div>
+    <div style="max-width: 100%; height: 400px; margin: 0 auto" id="map"></div>
     <div>
+
         <form method="post">
             {% csrf_token %}
+            {{ error }}
             {{ form.latitude }} {{ form.longitude }}
             <div class="push"></div>
+
+            {% if form.errors %}
+                <span style="color: red">Something went wrong. Please try again</span>
+            {% endif %}
+
             <p><span class="badge badge-pill badge-secondary">Name</span>
                 {{ form.name }}
             </p>
@@ -32,6 +39,7 @@
     </div>
 </div>
 <div class="push"></div>
+<hr>
 {% include 'parts/footer.html' %}
 </body>
 </html>

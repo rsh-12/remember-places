@@ -29,11 +29,17 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse explicabo sunt.</p>
 
                         <div class="fb">
-                            <span class="fb-text">Try right now!</span>
-                            <br>
-                            <button class="btn fb-btn">
-                                <a class="fb-link" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-                            </button>
+
+                            {% if user.is_authenticated %}
+                                <span class="fb-text">You are logged in</span>
+                            {% else %}
+                                <span class="fb-text">Try right now!</span>
+                                <br>
+                                <button class="btn fb-btn">
+                                    <a class="fb-link" href="{% url 'social:begin' 'facebook' %}">Login with
+                                        Facebook</a>
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

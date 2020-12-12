@@ -5,27 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hello, {{ user.first_name }}</h1>
-
-    {{ place.name }} <br>
-    {{ place.created_at }} <br>
-    {{ place.description }} <br>
-
-    <hr>
-    {% for obj in backends.associated %}
-        {% if obj.provider == 'facebook' %}
-            <div class="col-md-6 text-center">
-                <img src="{{ obj.extra_data.picture.data.url }}" alt="" width="150px" height="150px"
-                     style="border-radius: 50%">
-            </div>
-        {% endif %}
-    {% endfor %}
-    <div class="col-sm-12 mt-2 text-center">
-        <button class="btn btn-danger">
-            <a href="{% url 'memories:logout' %}">Logout</a>
-        </button>
+    <div class="text-desc">
+        <h1>{{ place.name }}</h1>
+        <span>{{ place.created_at }}</span>
+        <span class="text-small">| {{ place.longitude }}, {{ place.latitude }}</span>
+        <hr>
+        <div>
+            {{ place.description|linebreaksbr }}
+        </div>
     </div>
-    <hr>
-
-
 {% endblock %}

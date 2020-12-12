@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg header">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -9,12 +10,29 @@
                     <li class="nav-item">
                         <a class="nav-link header-links" href="{% url 'memories:memories' %}">My memories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link header-links" href="{% url 'memories:map' %}">Add new place</a>
-                    </li>
                 {% endif %}
-
             </ul>
+            {% if user.is_authenticated %}
+                <span class="header-span">{{ user.first_name }}</span>
+                <span class="header-span">
+                {% for obj in backends.associated %}
+                    {% if obj.provider == 'facebook' %}
+                        <div class="col-md-6 text-center">
+                        <img src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
+                             style="border-radius: 50%">
+                    </div>
+                    {% endif %}
+                {% empty %}
+                    <img src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
+                         style="border-radius: 50%">
+                {% endfor %}
+            </span>
+                <span class="logout-button header-span">
+                    <a class="nav-link header-links" href="{% url 'memories:logout' %}">Log out</a>
+                </span>
+            {% endif %}
+
+            <div class="push"></div>
         </div>
     </div>
 </nav>

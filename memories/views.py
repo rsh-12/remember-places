@@ -16,7 +16,7 @@ def home(request):
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
-    paginator = Paginator(places, 10)
+    paginator = Paginator(places, 2)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -38,6 +38,7 @@ def create_place(request):
     if request.method == 'POST':
         my_form = RawPlaceForm(request.POST)
         if my_form.is_valid():
+            print(my_form.cleaned_data)
             user = User.objects.get(id=request.user.id)
             place = Place.objects.create(**my_form.cleaned_data)
             place.users.add(user)
