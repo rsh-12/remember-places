@@ -7,5 +7,16 @@ class PlaceForm(forms.ModelForm):
         model = Place
         fields = [
             'name',
-            'description'
+            'description',
+            'latitude',
+            'longitude',
+            'users'
         ]
+
+
+class RawPlaceForm(forms.Form):
+    name = forms.CharField()
+    description = forms.CharField(widget=forms.Textarea())
+    latitude = forms.DecimalField()
+    longitude = forms.DecimalField()
+    # users = Place.users.add()

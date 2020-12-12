@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from .models import Place
-from .forms import PlaceForm
+from .forms import PlaceForm, RawPlaceForm
 
 
 def home(request):
@@ -26,8 +26,13 @@ def memory(request, pk):
 
 
 def create_place(request):
-    form = PlaceForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context = {'form': form}
+    my_form = RawPlaceForm()
+    if request.method == 'POST':
+        my_form = RawPlaceForm(request.POST)
+        if my_form.is_valid():
+            print(my_form.cleaned_data)
+            my_form = RawPlaceForm()
+        else:
+            print(my_form.errors)
+    context = {'form': my_form}
     return render(request, 'memories/map.html', context)

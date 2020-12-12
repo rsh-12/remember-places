@@ -2,8 +2,8 @@ ymaps.ready(init);
 var myMap;
 
 function getCoords(x, y) {
-    document.getElementById('x').value=x
-    document.getElementById('y').value=y
+    document.getElementById('id_latitude').value=x
+    document.getElementById('id_longitude').value=y
 }
 
 
