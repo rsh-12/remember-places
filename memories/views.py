@@ -33,6 +33,7 @@ def create_place(request):
             user = User.objects.get(id=request.user.id)
             place = Place.objects.create(**my_form.cleaned_data)
             place.users.add(user)
+            return redirect('memories:memories')
         else:
             print(my_form.errors)
     context = {'form': my_form}
