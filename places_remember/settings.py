@@ -132,6 +132,18 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+SOCIATL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'apps.users.pipeline.get_avatar',)
+
 SITE_ID = 1
 
 LOGIN_URL = '/'
@@ -143,7 +155,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = secret_vars.FB_KEY
 SOCIAL_AUTH_FACEBOOK_SECRET = secret_vars.FB_SECRET
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id,name,email, picture.type(large), link'
+    'fields': 'id,name,email,picture.type(large),link'
 }
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_DATA = [

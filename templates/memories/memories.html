@@ -7,7 +7,7 @@
 {% block content %}
     <hr>
     <h3>My sweet memories</h3>
-    User {{ user }}
+    User {{ user.first_name }}
     <button><a href="{% url 'memories:map' %}">Add?</a></button>
 
     <ul>
@@ -18,9 +18,6 @@
             </li>
         {% empty %}
             You do not have any places yet
-            <div>
-                <button><a href="{% url 'memories:map' %}">Add?</a></button>
-            </div>
         {% endfor %}
     </ul>
     <hr>
