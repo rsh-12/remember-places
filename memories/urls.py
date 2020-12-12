@@ -10,5 +10,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('memories/', views.memories, name='memories'),
     path('memory/<int:pk>/', views.memory, name='memory'),
-    path('map/', views.map, name='map'),
+    path('map/', views.create_place, name='map'),
 ]
