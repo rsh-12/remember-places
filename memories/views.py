@@ -1,11 +1,11 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from django.utils.datastructures import MultiValueDictKeyError
+from django.shortcuts import redirect
+from django.shortcuts import render
+from django.core.paginator import Paginator
 
-from .models import Place
 from .forms import RawPlaceForm
+from .models import Place
 
 
 def home(request):
@@ -16,17 +16,23 @@ def home(request):
 def memories(request):
     user = User.objects.get(id=request.user.id)
     places = user.place_set.all().order_by('-created_at')
+    paginator = Paginator(places, 10)
 
-    context = {'user': user, 'places': places}
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {'user': user, 'places': places, 'page_obj': page_obj}
     return render(request, 'memories/memories.html', context)
 
 
+# @login_required
 def memory(request, pk):
     place = Place.objects.get(id=pk)
     context = {'place': place}
     return render(request, 'memories/memory.html', context)
 
 
+# @login_required
 def create_place(request):
     my_form = RawPlaceForm()
     if request.method == 'POST':
@@ -40,5 +46,3 @@ def create_place(request):
             print(my_form.errors)
     context = {'form': my_form}
     return render(request, 'memories/map.html', context)
-
-
