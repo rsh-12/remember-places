@@ -8,15 +8,18 @@
     <hr>
     <h3>My sweet memories</h3>
     User {{ user }}
+    <button><a href="{% url 'memories:map' %}">Add?</a></button>
+
     <ul>
         {% for place in places %}
             <li>
-                <p>{{ place }}</p>
+                <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
+                <span>{{ place.created_at }}</span>
             </li>
         {% empty %}
             You do not have any places yet
             <div>
-                <button><a href="#">Add?</a></button>
+                <button><a href="{% url 'memories:map' %}">Add?</a></button>
             </div>
         {% endfor %}
     </ul>
