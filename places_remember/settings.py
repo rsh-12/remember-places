@@ -171,10 +171,10 @@ LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
 if DEBUG:
-    SECRET_KEY = 'secret'
+    SECRET_KEY = ''
 
-    SOCIAL_AUTH_FACEBOOK_KEY = 'key'
-    SOCIAL_AUTH_FACEBOOK_SECRET = 'secret'
+    SOCIAL_AUTH_FACEBOOK_KEY = ''
+    SOCIAL_AUTH_FACEBOOK_SECRET = ''
 
 else:
     SECRET_KEY = os.environ['KEY']
