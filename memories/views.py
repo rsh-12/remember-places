@@ -11,10 +11,6 @@ import os
 
 
 def home(request):
-    print('>>KEY')
-    print(os.environ['KEY'])
-    print('>>KEY')
-
     return render(request, 'memories/home.html')
 
 
