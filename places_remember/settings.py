@@ -52,9 +52,10 @@ LOGGING = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = secret_vars.KEY
+SECRET_KEY = os.environ['KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'places-of-memories.herokuapp.com']
 
@@ -172,17 +173,8 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-if DEBUG:
-    SECRET_KEY = 'secret_key'
-
-    SOCIAL_AUTH_FACEBOOK_KEY = ''
-    SOCIAL_AUTH_FACEBOOK_SECRET = ''
-
-else:
-    SECRET_KEY = os.environ['KEY']
-
-    SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-    SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 
