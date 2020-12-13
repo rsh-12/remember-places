@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from .forms import RawPlaceForm
 from .models import Place
 
+
 def home(request):
     return render(request, 'memories/home.html')
 

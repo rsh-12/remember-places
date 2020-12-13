@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 if DEBUG:
-    SECRET_KEY = "1"
+    SECRET_KEY = "ajsdjsadlj"
 else:
     SECRET_KEY = os.environ['KEY']
 
