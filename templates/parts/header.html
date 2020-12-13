@@ -13,7 +13,13 @@
                 {% endif %}
             </ul>
             {% if user.is_authenticated %}
-                <span class="header-span">{{ user.first_name }}</span>
+
+                {% if user.first_name %}
+                    <span class="header-span">{{ user.first_name }}</span>
+                {% else %}
+                    <span class="header-span">{{ user.username }}</span>
+                {% endif %}
+
                 <span class="header-span">
                 {% for obj in backends.associated %}
                     {% if obj.provider == 'facebook' %}
