@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import secret_vars
+# import secret_vars
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_vars.KEY
+# SECRET_KEY = secret_vars.KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if DEBUG:
+    SECRET_KEY = "1"
+else:
+    SECRET_KEY = os.environ['KEY']
 
 ALLOWED_HOSTS = []
 
@@ -150,9 +156,13 @@ LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
+if DEBUG:
+    SOCIAL_AUTH_FACEBOOK_KEY = 'key'
+    SOCIAL_AUTH_FACEBOOK_SECRET = 'secret'
+else:
+    SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+    SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 
-SOCIAL_AUTH_FACEBOOK_KEY = secret_vars.FB_KEY
-SOCIAL_AUTH_FACEBOOK_SECRET = secret_vars.FB_SECRET
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id,name,email,picture.type(large),link'
