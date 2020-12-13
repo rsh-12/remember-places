@@ -51,8 +51,8 @@ LOGGING = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = secret_vars.KEY
-SECRET_KEY = os.environ['KEY']
+SECRET_KEY = 'd3ofb_=ddr_hwd2i54a*@_+&8^l-2e%oekn7x*ot0x1q7tw#3d'
+# SECRET_KEY = os.environ['KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -173,8 +173,10 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+SOCIAL_AUTH_FACEBOOK_KEY = '145026767075699'
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+SOCIAL_AUTH_FACEBOOK_SECRET = '552584d9d30fc5ca4abac5e9618b9ab0'
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 
