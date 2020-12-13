@@ -171,9 +171,9 @@ LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
 if DEBUG:
-    SECRET_KEY = ''
+    SECRET_KEY = 'secret key'
 
-    SOCIAL_AUTH_FACEBOOK_KEY = 'secret'
+    SOCIAL_AUTH_FACEBOOK_KEY = ''
     SOCIAL_AUTH_FACEBOOK_SECRET = ''
 
 else:
