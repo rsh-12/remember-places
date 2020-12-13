@@ -22,12 +22,12 @@
 
                 <span class="header-span">
                 {% for obj in backends.associated %}
-                    {% if obj.provider == 'facebook' %}
+{#                    {% if obj.provider == 'facebook' %}#}
                         <div class="col-md-6 text-center">
                         <img src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
                              style="border-radius: 50%">
                     </div>
-                    {% endif %}
+{#                    {% endif %}#}
                 {% empty %}
                     <img src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
                          style="border-radius: 50%">
