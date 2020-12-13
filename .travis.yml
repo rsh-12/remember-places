@@ -15,7 +15,6 @@ script:
   - python manage.py test
   - coverage run --source=memories manage.py test
 
-repo_token: TtI3DUdeKz8fRcr98FGZFYGYoVlFyiUyP
 
 after_success:
   coveralls
