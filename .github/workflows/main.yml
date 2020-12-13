@@ -2,7 +2,7 @@
 
 name: CI
 env:
-  key:  
+  key:
 
 # Controls when the action will run. 
 on:
@@ -20,7 +20,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -37,11 +37,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
-      - name: Run migrations
-        run: |
-          - python manage.py migrate
-          - python manage.py makemigrations
+
+      - name: Run migrate
+        run: python manage.py makemigrations
+
+      - name: Run makemigrations
+        run: python manage.py migrate
 
       - name: Run tests
         run: python manage.py test
