@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-# import secret_vars
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -172,12 +171,10 @@ LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
 if DEBUG:
-    import secret_vars
+    SECRET_KEY = 'secret'
 
-    SECRET_KEY = secret_vars.KEY
-
-    SOCIAL_AUTH_FACEBOOK_KEY = secret_vars.FB_KEY
-    SOCIAL_AUTH_FACEBOOK_SECRET = secret_vars.FB_SECRET
+    SOCIAL_AUTH_FACEBOOK_KEY = 'key'
+    SOCIAL_AUTH_FACEBOOK_SECRET = 'secret'
 
 else:
     SECRET_KEY = os.environ['KEY']
