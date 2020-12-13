@@ -6,6 +6,7 @@ from memories.models import Place
 
 class PlaceTestCase(TestCase):
 
+    # create user, place and get username and description
     def test_should_return_user_place(self):
         user = create_user("Lika")
         place = create_place(user, "Cafe", "Very nice!")
@@ -13,6 +14,8 @@ class PlaceTestCase(TestCase):
         self.assertEqual("Lika", user.username)
         self.assertEqual("Very nice!", place.description)
 
+    # create 2 users and 4 places.
+    # check request: find places only for user with id 1
     def test_should_return_3(self):
         user = create_user("Lika")
         user2 = create_user("Another username")
