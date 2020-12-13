@@ -8,10 +8,12 @@ from .forms import RawPlaceForm
 from .models import Place
 
 
+# get home page
 def home(request):
     return render(request, 'memories/home.html')
 
 
+# get all memories
 @login_required
 def memories(request):
     user = User.objects.get(id=request.user.id)
@@ -25,6 +27,7 @@ def memories(request):
     return render(request, 'memories/memories.html', context)
 
 
+# get memory by id
 @login_required
 def memory(request, pk):
     place = Place.objects.get(id=pk)
@@ -32,6 +35,7 @@ def memory(request, pk):
     return render(request, 'memories/memory.html', context)
 
 
+# create memory
 @login_required
 def create_place(request):
     my_form = RawPlaceForm()
