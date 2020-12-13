@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-# import secret_vars
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,11 +55,6 @@ LOGGING = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-if DEBUG:
-    SECRET_KEY = "ajsdjsadlj"
-else:
-    SECRET_KEY = os.environ['KEY']
 
 ALLOWED_HOSTS = []
 
@@ -169,39 +163,44 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-SOCIATL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details',
-    'apps.users.pipeline.get_avatar',)
-
 SITE_ID = 1
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
+
 if DEBUG:
-    SOCIAL_AUTH_FACEBOOK_KEY = 'key'
-    SOCIAL_AUTH_FACEBOOK_SECRET = 'secret'
-    # SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY'] or 1
-    # SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET'] or 2
+    SECRET_KEY = 'secret_key'
+
+    SOCIAL_AUTH_FACEBOOK_KEY = ''
+    SOCIAL_AUTH_FACEBOOK_SECRET = ''
+
 else:
+    SECRET_KEY = os.environ['KEY']
+
     SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
     SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id,name,email,picture.type(large),link'
+    'fields': 'id, name, email, picture.type(large), link'
 }
 
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_DATA = [
+SOCIAL_AUTH_PIPELINE = [
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+]
+
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('name', 'name'),
     ('email', 'email'),
     ('picture', 'picture'),
