@@ -32,7 +32,7 @@ wheels/
 *.manifest
 *.spec
 
-# Installer logs
+# Installer logdsa
 pip-log.txt
 pip-delete-this-directory.txt
 
@@ -89,3 +89,4 @@ ENV/
 db.sqlite3
 secret_vars.py
 memories/migrations
+

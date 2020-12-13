@@ -37,7 +37,7 @@ LOGGING = {
             'when': 'D',  # this specifies the interval
             'interval': 1,  # defaults to 1, only necessary for other values
             'backupCount': 10,  # how many backup file to keep, 10 days
-            'filename': BASE_DIR / 'logs/app.log',
+            'filename': BASE_DIR / 'memories/log/app.log',
             'formatter': 'verbose'
         },
     },
