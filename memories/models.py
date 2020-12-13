@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Place(models.Model):
     name = models.CharField(max_length=50, blank=False)
-    description = models.TextField(blank=False, max_length=600)
+    description = models.TextField(blank=False, max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
 
     latitude = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
