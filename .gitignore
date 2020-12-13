@@ -32,7 +32,7 @@ wheels/
 *.manifest
 *.spec
 
-# Installer logs
+# Installer logdsa
 pip-log.txt
 pip-delete-this-directory.txt
 
@@ -52,7 +52,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 
 
@@ -89,3 +88,4 @@ ENV/
 db.sqlite3
 secret_vars.py
 memories/migrations
+
