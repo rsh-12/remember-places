@@ -1,12 +1,13 @@
 language: python
+
 python:
   - "3.7"
-  - "3.4"
+
 env:
+  - SECRET_KEY='MY_SECRET_KEY'
   - DJANGO=3.1.4 DB=sqlite3
-  -
 install:
   - pip install -r requirements.txt
   - pip install coveralls
 script:
-  - coverage run --source=memories manage.py test
+  - python manage.py test
