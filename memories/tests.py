@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.urls import reverse
 
 from memories.models import Place
 
@@ -17,17 +18,26 @@ class PlaceTestCase(TestCase):
     # create 2 users and 4 places.
     # check request: find places only for user with id 1
     def test_should_return_3(self):
+        # user and his places
         user = create_user("Lika")
-        user2 = create_user("Another username")
-
         create_place(user, "Place1", "Beautiful park1")
         create_place(user, "Place2", "Beautiful park2")
         create_place(user, "Place3", "Beautiful park4")
 
-        create_place(user2, "Place4", "It shouldn't count as a place")
+        # user2 and his places
+        user2 = create_user("Another username")
+        create_place(user2, "Place4", "It shouldn't count as a place for user with id 1")
 
         places = user.place_set.all()
+        response = self.client.get(reverse('memories:memories'))
+
         self.assertEqual(3, places.count())
+        self.assertNotEqual(404, response.status_code)
+
+    # test home url
+    def test_home_url(self):
+        response = self.client.get(reverse('memories:home'))
+        self.assertEqual(200, response.status_code)
 
 
 def create_user(name):
