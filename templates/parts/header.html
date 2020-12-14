@@ -3,37 +3,37 @@
     <div class="container">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link header-links" href="{% url 'memories:home' %}">Home <span
+                <a class="nav-link header-links mob-link-left" href="{% url 'memories:home' %}">Home <span
                         class="sr-only">(current)</span></a>
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link header-links" href="{% url 'memories:memories' %}">My memories</a>
+                    <a class="nav-link header-links mob-link-left" href="{% url 'memories:memories' %}">My memories</a>
                 </li>
             {% endif %}
         </ul>
         {% if user.is_authenticated %}
 
             {% if user.first_name %}
-                <span class="header-span">{{ user.first_name }}</span>
+                <span class="header-span mob-link-right">{{ user.first_name }}</span>
             {% else %}
-                <span class="header-span">{{ user.username }}</span>
+                <span class="header-span mob-link-right">{{ user.username }}</span>
             {% endif %}
 
             <span class="header-span">
                 {% for obj in backends.associated %}
                     {% if obj.provider == 'facebook' %}
                         <div class="col-md-6 text-center">
-                        <img src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
+                        <img class="mob-link-right" src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
                              style="border-radius: 50%">
                     </div>
                     {% endif %}
                 {% empty %}
-                    <img src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
+                    <img class="mob-link-right" src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
                          style="border-radius: 50%">
                 {% endfor %}
             </span>
-            <span class="logout-button header-span">
+            <span class="logout-button header-span mob-link-right">
                     <a class="nav-link header-links" href="{% url 'memories:logout' %}">Log out</a>
                 </span>
         {% endif %}
