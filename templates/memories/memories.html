@@ -5,12 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    <h3>My sweet memories</h3>
+    <h3 class="custom-header">My sweet memories</h3>
     <hr>
     <a class="custom-link text-white" href="{% url 'memories:map' %}">
         <button class="btn btn-primary">Add new place</button>
     </a>
-    <div class="push"></div>
     <div class="page-block">
     <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
@@ -37,14 +36,21 @@
             {% endif %}
     </span>
     </div>
-    <div class="push"></div>
 
     {% for place in page_obj %}
         <ul>
             <li>
                 <div class="d-flex justify-content-between">
                     <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
-                    <span>{{ place.created_at }}</span>
+                    <div class="d-flex justify-content-between">
+                        <span class="created">{{ place.created_at }}</span>
+                        <form action="{% url 'memories:delete' place.id %}" method="post">
+                            {% csrf_token %}
+                            <input class="btn btn-danger" type="submit"
+                                   onclick="return confirm('Are you sure you want to delete this place?')"
+                                   value="Delete">
+                        </form>
+                    </div>
                 </div>
             </li>
         </ul>

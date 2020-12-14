@@ -1,20 +1,15 @@
+import logging
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import redirect
-from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import render
 
 from .forms import RawPlaceForm
 from .models import Place
-import logging
 
 logger = logging.getLogger(__name__)
-
-
-# get home page
-def home(request):
-    logger.info("get home page -> '/'")
-    return render(request, 'memories/home.html')
 
 
 # get all memories
@@ -71,3 +66,12 @@ def create_place(request):
 
     context = {'form': my_form}
     return render(request, 'memories/map.html', context)
+
+
+@login_required
+def delete(request, pk):
+    obj = get_object_or_404(Place, id=pk)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('memories:memories')
+    return render(request, 'memories/memories.html', {'obj': obj})

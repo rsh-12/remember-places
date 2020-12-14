@@ -1,50 +1,42 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg header">
     <div class="container">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link header-links" href="{% url 'memories:home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link header-links" href="{% url 'memories:memories' %}">My memories</a>
-                    </li>
-                {% endif %}
-            </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link header-links" href="{% url 'memories:home' %}">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
             {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link header-links" href="{% url 'memories:memories' %}">My memories</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
 
-                {% if user.first_name %}
-                    <span class="header-span">{{ user.first_name }}</span>
-                {% else %}
-                    <span class="header-span">{{ user.username }}</span>
-                {% endif %}
+            {% if user.first_name %}
+                <span class="header-span">{{ user.first_name }}</span>
+            {% else %}
+                <span class="header-span">{{ user.username }}</span>
+            {% endif %}
 
-                <span class="header-span">
+            <span class="header-span">
                 {% for obj in backends.associated %}
-<<<<<<< HEAD
-=======
                     {% if obj.provider == 'facebook' %}
->>>>>>> master
                         <div class="col-md-6 text-center">
                         <img src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
                              style="border-radius: 50%">
                     </div>
-<<<<<<< HEAD
-=======
                     {% endif %}
->>>>>>> master
                 {% empty %}
                     <img src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
                          style="border-radius: 50%">
                 {% endfor %}
             </span>
-                <span class="logout-button header-span">
+            <span class="logout-button header-span">
                     <a class="nav-link header-links" href="{% url 'memories:logout' %}">Log out</a>
                 </span>
-            {% endif %}
-            <div class="push"></div>
-        </div>
+        {% endif %}
+        <div class="push"></div>
     </div>
 </nav>
-<div class="push"></div>
