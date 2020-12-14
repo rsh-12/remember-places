@@ -51,8 +51,7 @@ LOGGING = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd3ofb_=ddr_hwd2i54a*@_+&8^l-2e%oekn7x*ot0x1q7tw#3d'
-# SECRET_KEY = os.environ['KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -117,11 +116,11 @@ WSGI_APPLICATION = 'places_remember.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dc38f0vi4s7ikr',
-        'HOST': 'ec2-54-75-150-32.eu-west-1.compute.amazonaws.com',
+        'NAME': os.environ['DB_NAME'],
+        'HOST': os.environ['DB_HOST'],
         'PORT': 5432,
-        'USER': 'wnwztlzzmehbne',
-        'PASSWORD': 'c09130713496a8fd71e5bee9236e48706ce75629f752dd7a01654deaf0435608',
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
     }
 }
 
