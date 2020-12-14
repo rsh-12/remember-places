@@ -180,7 +180,9 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+# TODO вернуть в случае провала аутентификации через ФБ
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email, picture.type(large), link'
