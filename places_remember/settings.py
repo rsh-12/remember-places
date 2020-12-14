@@ -57,12 +57,11 @@ SECRET_KEY = 'some_secret_key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'places-of-memories.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -173,28 +172,14 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 SOCIAL_AUTH_FACEBOOK_KEY = '11111'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'secret1235'
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email, picture.type(large), link'
 }
-
-SOCIAL_AUTH_PIPELINE = [
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    'social.pipeline.social_auth.associate_by_email',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details',
-]
 
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('name', 'name'),

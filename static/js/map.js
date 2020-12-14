@@ -20,7 +20,8 @@ function init() {
             var coords = e.get('coords')
             myMap.balloon.open(coords, {
                 contentHeader: 'Great place in this city! :)',
-                contentBody: '<p>What happened here?</p>',
+                contentBody: '<p>What happened here?</p>' +
+                    [coords[0], coords[1]].join(', '),
                 contentFooter: '<sup>Click again</sup>'
             });
 

@@ -22,12 +22,18 @@
 
                 <span class="header-span">
                 {% for obj in backends.associated %}
-{#                    {% if obj.provider == 'facebook' %}#}
+<<<<<<< HEAD
+=======
+                    {% if obj.provider == 'facebook' %}
+>>>>>>> master
                         <div class="col-md-6 text-center">
                         <img src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
                              style="border-radius: 50%">
                     </div>
-{#                    {% endif %}#}
+<<<<<<< HEAD
+=======
+                    {% endif %}
+>>>>>>> master
                 {% empty %}
                     <img src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
                          style="border-radius: 50%">
@@ -37,7 +43,6 @@
                     <a class="nav-link header-links" href="{% url 'memories:logout' %}">Log out</a>
                 </span>
             {% endif %}
-
             <div class="push"></div>
         </div>
     </div>
