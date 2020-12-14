@@ -51,7 +51,8 @@ LOGGING = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'adssd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -61,7 +62,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'places-of-memories.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -70,7 +70,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'social_django',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+
     'memories',
 ]
 
@@ -100,8 +104,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+                # 'social_django.context_processors.backends',
+                # 'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -116,11 +120,11 @@ WSGI_APPLICATION = 'places_remember.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'HOST': os.environ['DB_HOST'],
+        'NAME': 'dc38f0vi4s7ikr',
+        'HOST': 'ec2-54-75-150-32.eu-west-1.compute.amazonaws.com',
         'PORT': 5432,
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'USER': 'wnwztlzzmehbne',
+        'PASSWORD': 'c09130713496a8fd71e5bee9236e48706ce75629f752dd7a01654deaf0435608',
     }
 }
 
@@ -166,8 +170,10 @@ STATICFILES_DIRS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'social_core.backends.facebook.FacebookOAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 SITE_ID = 1
@@ -177,32 +183,33 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 
 # SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 # TODO вернуть в случае провала аутентификации через ФБ
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id, name, email, picture.type(large), link'
-}
-
-SOCIAL_AUTH_PIPELINE = [
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    'social.pipeline.social_auth.associate_by_email',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details',
-]
-
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-    ('name', 'name'),
-    ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
-]
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+#     'fields': 'id, name, email, picture.type(large), link'
+# }
+#
+# SOCIAL_AUTH_PIPELINE = [
+#     'social.pipeline.social_auth.social_details',
+#     'social.pipeline.social_auth.social_uid',
+#     'social.pipeline.social_auth.auth_allowed',
+#     'social.pipeline.social_auth.social_user',
+#     'social.pipeline.user.get_username',
+#     'social.pipeline.social_auth.associate_by_email',
+#     'social.pipeline.social_auth.associate_user',
+#     'social.pipeline.social_auth.load_extra_data',
+#     'social.pipeline.user.user_details',
+# ]
+#
+# SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+#     ('name', 'name'),
+#     ('email', 'email'),
+#     ('picture', 'picture'),
+#     ('link', 'profile_url'),
+# ]
+#

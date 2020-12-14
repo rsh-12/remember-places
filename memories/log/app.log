@@ -1,0 +1,230 @@
+ERROR [2020-12-14 12:02:50,889] 10683 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 72, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'social'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/memories/views.py", line 17, in home
+    return render(request, 'memories/home.html')
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 83, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'social' is not a registered namespace
+ERROR [2020-12-14 12:03:30,755] 10763 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 72, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'social'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/memories/views.py", line 17, in home
+    return render(request, 'memories/home.html')
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 83, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'social' is not a registered namespace
+ERROR [2020-12-14 12:03:50,145] 10831 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 72, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'social'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/memories/views.py", line 17, in home
+    return render(request, 'memories/home.html')
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/urls/base.py", line 83, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'social' is not a registered namespace
+ERROR [2020-12-14 12:05:51,672] 10831 Internal Server Error: /admin/socialaccount/socialaccount/
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "socialaccount_socialaccount" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "socialaccount_socialaccou...
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/options.py", line 614, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/sites.py", line 233, in inner
+    return view(request, *args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/options.py", line 1693, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/options.py", line 748, in get_changelist_instance
+    sortable_by,
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/views/main.py", line 100, in __init__
+    self.get_results(request)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/contrib/admin/views/main.py", line 235, in get_results
+    result_count = paginator.count
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/core/paginator.py", line 94, in count
+    return c()
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/models/query.py", line 411, in count
+    return self.query.get_count(using=self.db)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/models/sql/query.py", line 515, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/models/sql/query.py", line 500, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jelly/Desktop/PYTHON/places_remember/env/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "socialaccount_socialaccount" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "socialaccount_socialaccou...
+                                          ^
+
+WARNING [2020-12-14 12:08:57,549] 11158 Not Found: /favicon.ico
+WARNING [2020-12-14 12:09:02,312] 11158 Not Found: /favicon.ico
+WARNING [2020-12-14 12:09:16,040] 11158 Not Found: /favicon.ico
+WARNING [2020-12-14 12:13:46,372] 11158 Not Found: /favicon.ico

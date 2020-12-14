@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load socialaccount %}
 
 {% block title %}
     Home
@@ -28,6 +29,12 @@
                             reiciendis rem repudiandae sunt vel!
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores esse explicabo sunt.</p>
+                        {% comment %}{% endcomment %}
+                    {% providers_media_js %}
+                        <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Login</a>
+
+                        {% comment %}{% endcomment %}
+
 
                         <div class="fb">
 
@@ -37,9 +44,9 @@
                                 <span class="fb-text">Try right now!</span>
                                 <br>
 
-                                <a class="fb-link text-white" href="{% url 'social:begin' 'facebook' %}">
+                                {% comment %}<a class="fb-link text-white" href="{% url 'social:begin' 'facebook' %}">
                                     <button class="btn fb-btn text-white">Login with Facebook</button>
-                                </a>
+                                </a>{% endcomment %}
                             {% endif %}
                         </div>
                     </div>
