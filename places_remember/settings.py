@@ -113,7 +113,6 @@ WSGI_APPLICATION = 'places_remember.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# postgres://wnwztlzzmehbne:c09130713496a8fd71e5bee9236e48706ce75629f752dd7a01654deaf0435608@ec2-54-75-150-32.eu-west-1.compute.amazonaws.com:5432/dc38f0vi4s7ikr
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
