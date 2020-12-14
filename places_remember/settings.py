@@ -51,12 +51,13 @@ LOGGING = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = secret_vars.KEY
+SECRET_KEY = 'd3ofb_=ddr_hwd2i54a*@_+&8^l-2e%oekn7x*ot0x1q7tw#3d'
+# SECRET_KEY = os.environ['KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'places-of-memories.herokuapp.com']
 
 # Application definition
 
@@ -75,6 +76,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -153,9 +155,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    'static'
+    os.path.join(BASE_DIR, 'static')
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -170,17 +173,10 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-if DEBUG:
-    SECRET_KEY = 'secret_key'
-
-    SOCIAL_AUTH_FACEBOOK_KEY = ''
-    SOCIAL_AUTH_FACEBOOK_SECRET = ''
-
-else:
-    SECRET_KEY = os.environ['KEY']
-
-    SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-    SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+SOCIAL_AUTH_FACEBOOK_KEY = '11111'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'secret1235'
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 

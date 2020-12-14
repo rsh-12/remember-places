@@ -10,7 +10,7 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 script:
-  - python manage.py makemigrations
+  - python manage.py makemigrations memories
   - python manage.py migrate
   - coverage run --omit 'memories/migrations/' --source=memories manage.py test
 
