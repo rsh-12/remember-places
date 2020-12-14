@@ -9,6 +9,7 @@ class RawPlaceForm(forms.Form):
 
     description = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'form form-control col-md-6',
+        'rows': 5,
         'placeholder': 'tell about your impressions'}))
 
     latitude = forms.DecimalField(widget=forms.TextInput())
