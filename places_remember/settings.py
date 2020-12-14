@@ -116,12 +116,8 @@ WSGI_APPLICATION = 'places_remember.wsgi.application'
 # postgres://wnwztlzzmehbne:c09130713496a8fd71e5bee9236e48706ce75629f752dd7a01654deaf0435608@ec2-54-75-150-32.eu-west-1.compute.amazonaws.com:5432/dc38f0vi4s7ikr
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dc38f0vi4s7ikr',
-        'HOST': 'ec2-54-75-150-32.eu-west-1.compute.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'wnwztlzzmehbne',
-        'PASSWORD': 'c09130713496a8fd71e5bee9236e48706ce75629f752dd7a01654deaf0435608',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -178,8 +174,10 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
+SOCIAL_AUTH_FACEBOOK_KEY = '11111'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'secret1235'
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 
