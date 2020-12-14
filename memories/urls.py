@@ -14,4 +14,5 @@ urlpatterns = [
     path('memories/', views.memories, name='memories'),
     path('memory/<int:pk>/', views.memory, name='memory'),
     path('map/', views.create_place, name='map'),
+    path('delete/<int:pk>/', views.delete, name='delete')
 ]
