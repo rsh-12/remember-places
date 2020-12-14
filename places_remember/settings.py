@@ -184,9 +184,9 @@ SOCIAL_AUTH_FACEBOOK_SECRET = 'ee8a6f737664c6ca2b8186349e3c9cff'
 # TODO вернуть в случае провала аутентификации через ФБ
 # SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-#     'fields': 'id, name, email, picture.type(large), link'
-# }
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email, picture.type(large), link'
+}
 #
 # SOCIAL_AUTH_PIPELINE = [
 #     'social.pipeline.social_auth.social_details',
@@ -200,10 +200,10 @@ SOCIAL_AUTH_FACEBOOK_SECRET = 'ee8a6f737664c6ca2b8186349e3c9cff'
 #     'social.pipeline.user.user_details',
 # ]
 #
-# SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-#     ('name', 'name'),
-#     ('email', 'email'),
-#     ('picture', 'picture'),
-#     ('link', 'profile_url'),
-# ]
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
 #
