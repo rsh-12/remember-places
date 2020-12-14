@@ -11,12 +11,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-# get home page
-def home(request):
-    logger.info("get home page -> '/'")
-    return render(request, 'memories/home.html')
-
-
 # get all memories
 @login_required
 def memories(request):
