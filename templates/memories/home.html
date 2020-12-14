@@ -36,10 +36,12 @@
                             {% else %}
                                 <span class="fb-text">Try right now!</span>
                                 <br>
+                                <button class="btn fb-btn text-white">
+                                    <a class="fb-link text-white" href="{% url 'social:begin' 'facebook' %}">
+                                        Login with Facebook
+                                    </a>
+                                </button>
 
-                                <a class="fb-link text-white" href="{% url 'social:begin' 'facebook' %}">
-                                    <button class="btn fb-btn text-white">Login with Facebook</button>
-                                </a>
                             {% endif %}
                         </div>
                     </div>

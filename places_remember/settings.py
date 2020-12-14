@@ -51,8 +51,13 @@ LOGGING = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'some_secret_key'
 # SECRET_KEY = os.environ['KEY']
+=======
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'adssd'
+>>>>>>> master
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -62,7 +67,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'places-of-memories.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -173,17 +177,24 @@ LOGIN_REDIRECT_URL = '/memories/'
 LOGOUT_URL = 'logout/'
 LOGOUT_REDIRECT_URL = '/'
 
+<<<<<<< HEAD
 # SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_KEY']
 # SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
 SOCIAL_AUTH_FACEBOOK_KEY = '11111'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'secret1235'
+=======
+SOCIAL_AUTH_FACEBOOK_KEY = '172001884657832'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ee8a6f737664c6ca2b8186349e3c9cff'
+>>>>>>> master
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+# TODO вернуть в случае провала аутентификации через ФБ
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email, picture.type(large), link'
 }
-
+#
 SOCIAL_AUTH_PIPELINE = [
     'social.pipeline.social_auth.social_details',
     'social.pipeline.social_auth.social_uid',
@@ -195,10 +206,11 @@ SOCIAL_AUTH_PIPELINE = [
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details',
 ]
-
+#
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('name', 'name'),
     ('email', 'email'),
     ('picture', 'picture'),
     ('link', 'profile_url'),
 ]
+#
