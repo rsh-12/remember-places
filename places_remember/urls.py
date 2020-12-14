@@ -17,8 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('memories.urls')),
-    # path('social-auth/', include('social_django.urls', namespace='social')),
-    path('accounts/', include('allauth.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
+    path('', include('memories.urls')),
 ]
