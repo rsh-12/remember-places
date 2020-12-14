@@ -140,6 +140,13 @@ and (max-width: 621px) {
         visibility: hidden;
     }
 
+    .mob-link-left {
+        margin-left: 20px;
+    }
+
+    .mob-link-right {
+        margin-right: 10px;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -168,6 +175,14 @@ and (max-width: 320px) {
 
     .created {
         visibility: hidden;
+    }
+
+    .mob-link-left {
+        margin-left: 20px;
+    }
+
+    .mob-link-right {
+        margin-right: 10px;
     }
 
 }
