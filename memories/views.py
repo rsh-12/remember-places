@@ -18,7 +18,7 @@ def memories(request):
     user = User.objects.get(id=request.user.id)
     logger.info("get current user")
 
-    places = user.place_set.all().order_by('-created_at')
+    places = user.place_set.all()
     logger.info("get all the user places")
 
     paginator = Paginator(places, 10)
