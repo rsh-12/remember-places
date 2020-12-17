@@ -31,8 +31,8 @@ class PlaceTestCase(TestCase):
         places = user.place_set.all()
         response = self.client.get(reverse('memories:memories'))
 
-        self.assertEqual(3, places.count())
         self.assertNotEqual(404, response.status_code)
+        self.assertEqual(3, places.count())
 
     # test home url
     def test_home_url(self):
