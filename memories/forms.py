@@ -1,7 +1,6 @@
 from django import forms
 
 
-# form to add place
 class RawPlaceForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form form-control col-md-6',
