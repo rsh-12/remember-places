@@ -26,7 +26,8 @@ class PlaceTestCase(TestCase):
 
         # user2 and his places
         user2 = create_user("Another username")
-        create_place(user2, "Place4", "It shouldn't count as a place for user with id 1")
+
+        create_place("Place4", "It shouldn't count as a place for user with id 1", user2.id)
 
         places = user.place_set.all()
         response = self.client.get(reverse('memories:memories'))
