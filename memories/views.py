@@ -49,16 +49,7 @@ def create_place(request):
         my_form = RawPlaceForm(request.POST)
 
         if my_form.is_valid():
-            user = User.objects.get(id=request.user.id)
-            logger.info("get user by id")
-
-            place = Place.objects.create(**my_form.cleaned_data)
-            logger.info("create new place")
-
-            place.users.add(user)
-            logger.info("map user to place")
-
-            logger.info("redirect to memories page -> '/memories/'")
+            Place.objects.create(**my_form.cleaned_data, user_id=request.user.id)
             return redirect('memories:memories')
 
         else:

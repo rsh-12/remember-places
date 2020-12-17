@@ -10,7 +10,7 @@ class PlaceTestCase(TestCase):
     # create user, place and get username and description
     def test_should_return_user_place(self):
         user = create_user("Lika")
-        place = create_place(user, "Cafe", "Very nice!")
+        place = create_place("Cafe", "Very nice!", user_id=user.id)
 
         self.assertEqual("Lika", user.username)
         self.assertEqual("Very nice!", place.description)
@@ -20,19 +20,20 @@ class PlaceTestCase(TestCase):
     def test_should_return_3(self):
         # user and his places
         user = create_user("Lika")
-        create_place(user, "Place1", "Beautiful park1")
-        create_place(user, "Place2", "Beautiful park2")
-        create_place(user, "Place3", "Beautiful park4")
+        create_place("Place1", "Beautiful park1", user.id)
+        create_place("Place2", "Beautiful park2", user.id)
+        create_place("Place3", "Beautiful park4", user.id)
 
         # user2 and his places
         user2 = create_user("Another username")
-        create_place(user2, "Place4", "It shouldn't count as a place for user with id 1")
+
+        create_place("Place4", "It shouldn't count as a place for user with id 1", user2.id)
 
         places = user.place_set.all()
         response = self.client.get(reverse('memories:memories'))
 
-        self.assertEqual(3, places.count())
         self.assertNotEqual(404, response.status_code)
+        self.assertEqual(3, places.count())
 
     # test home url
     def test_home_url(self):
@@ -45,7 +46,6 @@ def create_user(name):
     return user
 
 
-def create_place(user, place_name, description):
-    place = Place.objects.create(name=place_name, description=description)
-    place.users.add(user)
+def create_place(place_name, description, user_id):
+    place = Place.objects.create(name=place_name, description=description, user_id=user_id)
     return place
