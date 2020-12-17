@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, get_object_or_404
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .forms import RawPlaceForm
 from .models import Place
@@ -23,15 +23,10 @@ class PlaceListView(LoginRequiredMixin, ListView):
         return contex
 
 
-# get memory by id
-@login_required
-def memory(request, pk):
-    place = Place.objects.get(id=pk)
-    logger.info(f"get place by id: {pk}")
-    context = {'place': place}
-
-    logger.info(f"get memory page -> '/memory/{pk}/'")
-    return render(request, 'memories/memory.html', context)
+class PlaceDetailView(LoginRequiredMixin, DetailView):
+    model = Place
+    context_object_name = 'place'
+    template_name = 'memories/memory.html'
 
 
 @login_required
