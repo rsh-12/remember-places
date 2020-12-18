@@ -12,7 +12,6 @@ from .models import Place
 # get all places
 class PlaceListView(LoginRequiredMixin, ListView):
     model = Place
-    # todo -> fix paginaton
     paginate_by = 10
     template_name = 'memories/memories.html'
 
