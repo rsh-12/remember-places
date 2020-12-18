@@ -1,17 +1,17 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, DeleteView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
-from .forms import RawPlaceForm
+from .forms import PlaceModelForm
 from .models import Place
 
 
 # get all places
 class PlaceListView(LoginRequiredMixin, ListView):
     model = Place
+    # todo -> fix paginaton
     paginate_by = 10
     template_name = 'memories/memories.html'
 
@@ -29,19 +29,15 @@ class PlaceDetailView(LoginRequiredMixin, DetailView):
 
 
 # create place
-@login_required
-def create_place(request):
-    my_form = RawPlaceForm()
+class PlaceCreateView(LoginRequiredMixin, CreateView):
+    form_class = PlaceModelForm
+    model = Place
+    template_name = 'memories/map.html'
+    success_url = reverse_lazy('memories:memories')
 
-    if request.method == 'POST':
-        my_form = RawPlaceForm(request.POST)
-
-        if my_form.is_valid():
-            Place.objects.create(**my_form.cleaned_data, user_id=request.user.id)
-            return redirect('memories:memories')
-
-    context = {'form': my_form}
-    return render(request, 'memories/map.html', context)
+    def form_valid(self, form):
+        form.instance.user = User.objects.get(id=self.request.user.id)
+        return super(PlaceCreateView, self).form_valid(form)
 
 
 # delete place
