@@ -2,9 +2,10 @@ import logging
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, DeleteView
 
 from .forms import RawPlaceForm
 from .models import Place
@@ -48,10 +49,7 @@ def create_place(request):
 
 
 # delete place
-@login_required
-def delete(request, pk):
-    obj = get_object_or_404(Place, id=pk)
-    if request.method == 'POST':
-        obj.delete()
-        return redirect('memories:memories')
-    return render(request, 'memories/memories.html', {'obj': obj})
+class PlaceDeleteView(LoginRequiredMixin, DeleteView):
+    model = Place
+    template_name = 'memories/memories.html'
+    success_url = reverse_lazy('memories:memories')
