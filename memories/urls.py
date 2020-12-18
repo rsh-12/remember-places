@@ -12,5 +12,5 @@ urlpatterns = [
     path('memories/', views.PlaceListView.as_view(), name='memories'),
     path('memory/<int:pk>/', views.PlaceDetailView.as_view(), name='memory'),
     path('map/', views.create_place, name='map'),
-    path('delete/<int:pk>/', views.delete, name='delete')
+    path('delete/<int:pk>', views.PlaceDeleteView.as_view(), name='delete')
 ]
