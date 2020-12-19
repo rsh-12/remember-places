@@ -19,7 +19,6 @@ class PlaceListView(LoginRequiredMixin, ListView):
 # get place by id
 class PlaceDetailView(LoginRequiredMixin, DetailView):
     model = Place
-    context_object_name = 'place'
     template_name = 'memories/memory.html'
 
 
