@@ -14,6 +14,11 @@
     <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
+        <br>
+        <span class="quantity">
+            Total records: {{ places_quantity }}
+        </span>
+
         <span class="pagination">
     {% if page_obj.has_previous %}
         <li class="page-item">

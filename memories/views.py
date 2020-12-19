@@ -15,6 +15,11 @@ class PlaceListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Place.objects.filter(user_id=self.request.user.id)
 
+    def get_context_data(self, **kwargs):
+        context = super(PlaceListView, self).get_context_data(**kwargs)
+        context['places_quantity'] = Place.objects.filter(user_id=self.request.user.id).count()
+        return context
+
 
 # get place by id
 class PlaceDetailView(LoginRequiredMixin, DetailView):
