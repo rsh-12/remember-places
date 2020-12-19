@@ -9,7 +9,8 @@ function getCoords(x, y) {
 function init() {
     myMap = new ymaps.Map("map", {
         center: [56.83507546894007, 60.59762278832995], // Екб
-        zoom: 13
+        zoom: 12,
+        controls:['searchControl', 'zoomControl']
     }, {
         balloonMaxWidth: 200,
         searchControlProvider: 'yandex#search'

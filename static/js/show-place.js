@@ -15,7 +15,8 @@ function setName(name) {
 function init() {
     var myMap = new ymaps.Map("map-show-place", {
         center: setCoords(x, y),
-        zoom: 12
+        zoom: 15,
+        controls: []
     });
 
     myMap.geoObjects
