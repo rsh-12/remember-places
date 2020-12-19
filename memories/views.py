@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
@@ -10,26 +9,11 @@ from .models import Place
 
 # get all places
 class PlaceListView(LoginRequiredMixin, ListView):
-    model = Place
     paginate_by = 10
     template_name = 'memories/memories.html'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        contex = super(PlaceListView, self).get_context_data(**kwargs)
-        object_list = Place.objects.filter(user_id=self.request.user.id)
-        paginator = Paginator(object_list, self.paginate_by)
-
-        page = self.request.GET.get('page')
-
-        try:
-            page_obj = paginator.page(page)
-        except PageNotAnInteger:
-            page_obj = paginator.page(1)
-        except EmptyPage:
-            page_obj = paginator.page(paginator.num_pages)
-
-        contex['page_obj'] = page_obj
-        return contex
+    def get_queryset(self):
+        return Place.objects.filter(user_id=self.request.user.id)
 
 
 # get place by id
