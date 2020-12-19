@@ -1,15 +1,19 @@
 from django import forms
 
+from memories.models import Place
 
-class RawPlaceForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form form-control col-md-6',
-        'placeholder': 'give a name to this place'}))
 
-    description = forms.CharField(widget=forms.Textarea(attrs={
-        'class': 'form form-control col-md-6',
-        'rows': 5,
-        'placeholder': 'tell about your impressions'}))
+class PlaceModelForm(forms.ModelForm):
+    class Meta:
+        model = Place
+        exclude = ('user',)
 
-    latitude = forms.DecimalField(widget=forms.TextInput())
-    longitude = forms.DecimalField(widget=forms.TextInput())
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form form-control col-md-6',
+                                           'placeholder': 'give a name to this place'}),
+            'description': forms.Textarea(attrs={'class': 'form form-control col-md-6',
+                                                 'rows': 5,
+                                                 'placeholder': 'tell about your impressions'}),
+            'latitude': forms.TextInput(),
+            'longitude': forms.TextInput()
+        }

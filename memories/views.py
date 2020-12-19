@@ -1,18 +1,15 @@
-import logging
-
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, DeleteView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView
 
-from .forms import RawPlaceForm
+from .forms import PlaceModelForm
 from .models import Place
 
-logger = logging.getLogger(__name__)
 
-
+# get all places
 class PlaceListView(LoginRequiredMixin, ListView):
     model = Place
     paginate_by = 10
@@ -20,32 +17,39 @@ class PlaceListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         contex = super(PlaceListView, self).get_context_data(**kwargs)
-        contex['page_obj'] = Place.objects.filter(user_id=self.request.user.id)
+        object_list = Place.objects.filter(user_id=self.request.user.id)
+        paginator = Paginator(object_list, self.paginate_by)
+
+        page = self.request.GET.get('page')
+
+        try:
+            page_obj = paginator.page(page)
+        except PageNotAnInteger:
+            page_obj = paginator.page(1)
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+
+        contex['page_obj'] = page_obj
         return contex
 
 
+# get place by id
 class PlaceDetailView(LoginRequiredMixin, DetailView):
     model = Place
     context_object_name = 'place'
     template_name = 'memories/memory.html'
 
 
-@login_required
-def create_place(request):
-    my_form = RawPlaceForm()
+# create place
+class PlaceCreateView(LoginRequiredMixin, CreateView):
+    form_class = PlaceModelForm
+    model = Place
+    template_name = 'memories/map.html'
+    success_url = reverse_lazy('memories:memories')
 
-    if request.method == 'POST':
-        my_form = RawPlaceForm(request.POST)
-
-        if my_form.is_valid():
-            Place.objects.create(**my_form.cleaned_data, user_id=request.user.id)
-            return redirect('memories:memories')
-
-        else:
-            logger.warning("one or more fields have an error")
-
-    context = {'form': my_form}
-    return render(request, 'memories/map.html', context)
+    def form_valid(self, form):
+        form.instance.user = User.objects.get(id=self.request.user.id)
+        return super(PlaceCreateView, self).form_valid(form)
 
 
 # delete place
