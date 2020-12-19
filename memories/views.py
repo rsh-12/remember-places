@@ -1,9 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, DeleteView, CreateView
+from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
-from .forms import PlaceModelForm
+from .forms import PlaceModelForm, PlaceUpdateModelForm
 from .models import Place
 
 
@@ -43,4 +43,12 @@ class PlaceCreateView(LoginRequiredMixin, CreateView):
 class PlaceDeleteView(LoginRequiredMixin, DeleteView):
     model = Place
     template_name = 'memories/memories.html'
+    success_url = reverse_lazy('memories:memories')
+
+
+# update place
+class PlaceUpdateView(LoginRequiredMixin, UpdateView):
+    model = Place
+    form_class = PlaceUpdateModelForm
+    template_name = 'memories/update-form.html'
     success_url = reverse_lazy('memories:memories')

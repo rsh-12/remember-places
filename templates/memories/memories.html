@@ -49,6 +49,9 @@
                     <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
                     <div class="d-flex justify-content-between">
                         <span class="created">{{ place.created_at }}</span>
+
+                        <a href="{% url 'memories:update' place.id %}">Update</a>
+
                         <form action="{% url 'memories:delete' place.id %}" method="post">
                             {% csrf_token %}
                             <input class="btn btn-danger" type="submit"
