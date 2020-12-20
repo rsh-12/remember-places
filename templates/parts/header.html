@@ -39,8 +39,12 @@
                     <a class="nav-link header-links" href="{% url 'memories:logout' %}">Sign out</a>
                 </span>
         {% else %}
-            <span class="logout-button header-span mob-link-right">
+            <span class=" header-span mob-link-right">
             <a class="nav-link header-links" href="{% url 'memories:login' %}">Sign in</a>
+            </span>
+
+            <span class="logout-button header-span mob-link-right">
+            <a class="nav-link header-links" href="{% url 'memories:registration' %}">Sign up</a>
             </span>
         {% endif %}
         <div class="push"></div>

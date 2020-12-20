@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block content %}
+    <h1>Sign Up</h1>
+
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                <input class="form-control col-md-4" type="text" name="username" maxlength="150"
+                       autocapitalize="none" autocomplete="username"
+                       autofocus
+                       required id="id_username">
+            </div>
+
+            <div class="form-group">
+                <label for="id_password1">Password:</label>
+                <input class="form-control col-md-4" type="password" name="password1"
+                       autocomplete="new-password" required
+                       id="id_password1">
+            </div>
+
+            <div class="form-group">
+                <label for="id_password2">Password confirmation:</label>
+                <input class="form-control col-md-4" type="password" name="password2"
+                       autocomplete="new-password" required
+                       id="id_password2">
+                <small class="form-text text-muted">Enter the same password
+                    as before, for
+                    verification.</small>
+            </div>
+
+            <div>
+                <ul class="password-info">
+                    <li>Your password can’t be too similar to your other personal information.</li>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can’t be a commonly used password.</li>
+                    <li>Your password can’t be entirely numeric.</li>
+                </ul>
+            </div>
+
+
+            <input class="btn btn-primary" type="submit" value="Create my account">
+
+        </form>
+    </div>
+{% endblock %}
