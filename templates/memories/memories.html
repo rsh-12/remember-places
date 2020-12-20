@@ -14,6 +14,11 @@
     <span>
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
+        <br>
+        <span class="quantity">
+            Total records: {{ places_quantity }}
+        </span>
+
         <span class="pagination">
     {% if page_obj.has_previous %}
         <li class="page-item">
@@ -44,6 +49,12 @@
                     <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
                     <div class="d-flex justify-content-between">
                         <span class="created">{{ place.created_at }}</span>
+
+                        <div>
+                            <a class="btn btn-secondary mr-2"
+                               href="{% url 'memories:update' place.id %}">Update</a>
+                        </div>
+
                         <form action="{% url 'memories:delete' place.id %}" method="post">
                             {% csrf_token %}
                             <input class="btn btn-danger" type="submit"
