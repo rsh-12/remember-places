@@ -64,9 +64,19 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                # добавляет в контекст шаблона переменные:
+                # debug - хранит значение параметра проекта DEBUG,
+                # sql_queries - хранит сведения о запросах к БД
                 'django.template.context_processors.debug',
+
+                # добавляет в контекст шаблона переменную request,
+                # храняющую объект текущего запроса
                 'django.template.context_processors.request',
+
+                # добавляет в контекст шаблона переменные user & perm,
+                # храняющие сведения о текущем юзере и его правах
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
 
                 'social_django.context_processors.backends',
