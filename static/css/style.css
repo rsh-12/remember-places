@@ -147,6 +147,11 @@ and (max-width: 621px) {
     .mob-link-right {
         margin-right: 10px;
     }
+
+    #map-show-place {
+        float: none;
+        margin: 5px auto;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
@@ -185,6 +190,10 @@ and (max-width: 320px) {
         margin-right: 10px;
     }
 
+    #map-show-place {
+        float: none;
+        margin: 5px auto;
+    }
 }
 
 .navbar {
@@ -208,4 +217,19 @@ nav {
 
 .quantity {
     color: #938d8d;
+}
+
+#map-show-place {
+    margin: 0 10px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px 1px #dbd5d5;
+    float: left;
+}
+
+.ago{
+    color: #938d8d;
+}
+.impressions{
+    color: #525151;
+    font-size: 1.5rem;
 }

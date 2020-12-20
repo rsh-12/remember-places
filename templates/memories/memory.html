@@ -28,21 +28,20 @@
         <h1 id="place-name" class="text-center">{{ place.name }}</h1>
         <div class="d-flex justify-content-between">
             <span>{{ place.created_at|date:"d E Y, H:i" }}</span>
-            <span>{{ place.created_at|timesince }} ago</span>
+            <span class="ago">{{ place.created_at|timesince }} ago</span>
         </div>
         <div class="text-small">
             <span id="x">{{ place.latitude }}</span>, <span id="y">{{ place.longitude }}</span>
         </div>
         <hr>
-        <div style="width: 100%; height: 250px; margin: 0 auto" id="map-show-place"></div>
-        <hr>
-        <div>
-            {{ place.description|linebreaksbr }}
+        <div style="min-height: 255px">
+            <div style="width: 300px; height: 250px;" id="map-show-place"></div>
+            <div class="impressions">{{ place.description|linebreaksbr }}</div>
             <br>
-            <a href="{% url 'memories:memories' %}">Go to all places</a>
         </div>
+        <hr>
+        <a href="{% url 'memories:memories' %}">Go to all places</a>
     </div>
-
     <script type="text/javascript" src="{% static 'js/show-place.js' %}"></script>
     <div class="push"></div>
 </div>
