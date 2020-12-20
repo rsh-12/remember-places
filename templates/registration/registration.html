@@ -6,13 +6,18 @@
 
 {% block content %}
     <h1>Sign Up</h1>
-
+    {% if form.errors %}
+        <span style="color: red">Something went wrong. Please try again</span>
+    {% endif %}
     <div>
         <form action="" method="post">
             {% csrf_token %}
 
             <div class="form-group">
                 <label for="id_username">Username:</label>
+                {% if form.username.errors %}
+                    <span style="color: red">Sorry, this username is already taken</span>
+                {% endif %}
                 <input class="form-control col-md-4" type="text" name="username" maxlength="150"
                        autocapitalize="none" autocomplete="username"
                        autofocus
@@ -21,6 +26,9 @@
 
             <div class="form-group">
                 <label for="id_password1">Password:</label>
+                {% if form.password1.errors %}
+                    <span style="color: red">Invalid password. Please try again</span>
+                {% endif %}
                 <input class="form-control col-md-4" type="password" name="password1"
                        autocomplete="new-password" required
                        id="id_password1">
@@ -28,6 +36,9 @@
 
             <div class="form-group">
                 <label for="id_password2">Password confirmation:</label>
+                {% if form.password2.errors %}
+                    <span style="color: red">Invalid password. Please try again</span>
+                {% endif %}
                 <input class="form-control col-md-4" type="password" name="password2"
                        autocomplete="new-password" required
                        id="id_password2">
