@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
@@ -14,4 +15,5 @@ urlpatterns = [
     path('map/', views.PlaceCreateView.as_view(), name='map'),
     path('delete/<int:pk>/', views.PlaceDeleteView.as_view(), name='delete'),
     path('update/<int:pk>/', views.PlaceUpdateView.as_view(), name='update'),
+    path('accounts/login/', LoginView.as_view(), name='login')
 ]

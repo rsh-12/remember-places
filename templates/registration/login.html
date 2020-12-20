@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        You are logged in
+    {% else %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}">
+            <input type="submit" value="Login">
+        </form>
+
+    {% endif %}
+{% endblock %}
