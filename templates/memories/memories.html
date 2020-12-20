@@ -48,7 +48,7 @@
                 <div class="d-flex justify-content-between">
                     <a href="{{ place.get_absolute_url }}">{{ place.name }}</a>
                     <div class="d-flex justify-content-between">
-                        <span class="created">{{ place.created_at }}</span>
+                        <span class="created">{{ place.created_at|date:"d-m-Y, H:i:s" }}</span>
 
                         <div>
                             <a class="btn btn-secondary mr-2"
