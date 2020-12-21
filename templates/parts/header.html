@@ -15,9 +15,13 @@
         {% if user.is_authenticated %}
 
             {% if user.first_name %}
-                <span class="header-span mob-link-right">{{ user.first_name }}</span>
+                <span class="header-span mob-link-right">
+                <a class="header-links" href="{% url '' %}">{{ user.first_name }}</a>
+                </span>
             {% else %}
-                <span class="header-span mob-link-right">{{ user.username }}</span>
+                <span class="header-span mob-link-right">
+                <a class="header-links" href="{% url '' %}">{{ user.username }}</a>
+                </span>
             {% endif %}
 
             <span class="header-span">
