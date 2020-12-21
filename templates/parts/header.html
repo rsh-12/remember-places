@@ -16,11 +16,11 @@
 
             {% if user.first_name %}
                 <span class="header-span mob-link-right">
-                <a class="header-links" href="{% url '' %}">{{ user.first_name }}</a>
+                <a class="header-links" href="{% url 'memories:profile' %}">{{ user.first_name }}</a>
                 </span>
             {% else %}
                 <span class="header-span mob-link-right">
-                <a class="header-links" href="{% url '' %}">{{ user.username }}</a>
+                <a class="header-links" href="{% url 'memories:profile' %}">{{ user.username }}</a>
                 </span>
             {% endif %}
 

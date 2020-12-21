@@ -6,4 +6,6 @@
 
 {% block content %}
     <h1>Profile</h1>
+    {{ user.first_name }}
+    <a href="{% url 'memories:password_change' %}">change password</a>
 {% endblock %}
