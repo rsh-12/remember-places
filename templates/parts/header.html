@@ -24,18 +24,28 @@
                 {% for obj in backends.associated %}
                     {% if obj.provider == 'facebook' %}
                         <div class="col-md-6 text-center">
-                        <img class="mob-link-right" src="{{ obj.extra_data.picture.data.url }}" alt="picture" width="40px" height="40px"
+                        <img class="mob-link-right" src="{{ obj.extra_data.picture.data.url }}" alt="picture"
+                             width="40px" height="40px"
                              style="border-radius: 50%">
                     </div>
                     {% endif %}
                 {% empty %}
-                    <img class="mob-link-right" src="{% static 'images/map.png' %}" alt="picture" width="40px" height="40px"
+                    <img class="mob-link-right" src="{% static 'images/map.png' %}" alt="picture" width="40px"
+                         height="40px"
                          style="border-radius: 50%">
                 {% endfor %}
             </span>
             <span class="logout-button header-span mob-link-right">
-                    <a class="nav-link header-links" href="{% url 'memories:logout' %}">Log out</a>
+                    <a class="nav-link header-links" href="{% url 'memories:logout' %}">Sign out</a>
                 </span>
+        {% else %}
+            <span class=" header-span mob-link-right">
+            <a class="nav-link header-links" href="{% url 'memories:login' %}">Sign in</a>
+            </span>
+
+            <span class="logout-button header-span mob-link-right">
+            <a class="nav-link header-links" href="{% url 'memories:registration' %}">Sign up</a>
+            </span>
         {% endif %}
         <div class="push"></div>
     </div>
