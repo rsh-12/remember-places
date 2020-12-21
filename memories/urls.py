@@ -1,11 +1,8 @@
-from django.contrib.auth.views import LoginView
-from django.urls import path
 from django.contrib.auth import views as auth_views
-
-from . import views
+from django.urls import path
 from django.views.generic import TemplateView
 
-from .views import UserRegistrationView
+from . import views
 
 app_name = 'memories'
 
@@ -17,6 +14,4 @@ urlpatterns = [
     path('map/', views.PlaceCreateView.as_view(), name='map'),
     path('delete/<int:pk>/', views.PlaceDeleteView.as_view(), name='delete'),
     path('update/<int:pk>/', views.PlaceUpdateView.as_view(), name='update'),
-    path('accounts/login/', LoginView.as_view(), name='login'),
-    path('accounts/registration/', UserRegistrationView.as_view(), name='registration'),
 ]
