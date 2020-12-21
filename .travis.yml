@@ -4,6 +4,7 @@ python:
   - "3.7"
 
 env:
+  - repo_token=token
   - SECRET_KEY='MY_SECRET_KEY'
   - DJANGO=3.1.4 DB=sqlite3
 install:
