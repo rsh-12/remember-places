@@ -7,10 +7,15 @@
 {% block content %}
     <div>
         <h1>Profile</h1>
-        <p>Username: {{ user.username }}</p>
-        <p>First Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Date joined: {{ user.date_joined|date:"d.m.Y (H:i:s)" }}</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {#        <p>Username: {{ user.username }}</p>#}
+            {#        <p>First Name: {{ user.first_name }}</p>#}
+            {#        <p>Last Name: {{ user.last_name }}</p>#}
+            {#        <p>Email: {{ user.email }}</p>#}
+            {#        <p>Date joined: {{ user.date_joined|date:"d.m.Y (H:i:s)" }}</p>#}
+            <input type="submit" value="update">
+        </form>
     </div>
 {% endblock %}

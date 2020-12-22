@@ -27,4 +27,4 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserUpdateModelForm
     template_name = "user/profile.html"
-    success_url = reverse_lazy('user:profile')
+    success_url = reverse_lazy('memories:memories')
