@@ -9,6 +9,13 @@
     <h1>Profile</h1>
     <hr>
 
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success text-center" role="alert">
+                <span>{{ message|upper }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
 
     <div class="d-flex justify-content-around">
         <div class="col-md-6">
