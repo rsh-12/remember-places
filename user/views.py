@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
+from user.forms import UserUpdateModelForm
+
 
 class UserRegistrationView(CreateView):
     template_name = 'registration/registration.html'
@@ -23,6 +25,6 @@ class UserRegistrationView(CreateView):
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email']
+    form_class = UserUpdateModelForm
     template_name = "user/profile.html"
     success_url = reverse_lazy('user:profile')

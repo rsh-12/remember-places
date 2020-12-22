@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 
-class PlaceUpdateModelForm(forms.ModelForm):
+class UserUpdateModelForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
