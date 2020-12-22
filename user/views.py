@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
@@ -41,5 +42,5 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
-    template_name = "registration/change_password.html"
-    success_url = reverse_lazy('user:profile-update')
+    template_name = "user/change_password.html"
+    success_url = reverse_lazy('memories:memories')
