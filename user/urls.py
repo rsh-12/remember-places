@@ -2,7 +2,7 @@ from django.contrib.auth.views import PasswordChangeView, LoginView, PasswordCha
 from django.urls import path
 from django.views.generic import TemplateView
 
-from memories.views import UserRegistrationView
+from user.views import UserRegistrationView
 
 app_name = 'user'
 
