@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 # user registration
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib.auth.views import PasswordChangeView
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
@@ -27,4 +29,9 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserUpdateModelForm
     template_name = "user/profile.html"
-    success_url = reverse_lazy('memories:memories')
+    success_url = "/profile/update/{id}/"
+
+
+class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+    template_name = "registration/change_password.html"
+    success_url = reverse_lazy('user:profile-update')
