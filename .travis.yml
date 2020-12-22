@@ -5,14 +5,15 @@ python:
 
 env:
   - repo_token=token SECRET_KEY='MY_SECRET_KEY' DJANGO=3.1.4 DB=sqlite3
+
 install:
   - pip install -r requirements.txt
   - pip install coveralls
+
 script:
   - python manage.py makemigrations memories
   - python manage.py migrate
   - coverage run --source=memories manage.py test
-
 
 after_success:
   coveralls
