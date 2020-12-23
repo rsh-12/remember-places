@@ -9,7 +9,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
 
-from user.forms import UserUpdateModelForm
+from user.forms import *
 
 
 # user registration
@@ -51,6 +51,7 @@ class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
 
 
 class UserPasswordResetView(PasswordResetView):
+    form_class = UserPasswordResetForm
     template_name = 'user/reset_password.html'
     success_url = reverse_lazy('user:password_reset_done')
 
@@ -61,6 +62,7 @@ class UserPasswordResetDoneView(PasswordResetDoneView):
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = UserSetPasswordForm
     template_name = 'user/password_reset_confirm.html'
     success_url = reverse_lazy('user:password_reset_complete')
 
