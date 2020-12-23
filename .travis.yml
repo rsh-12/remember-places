@@ -4,15 +4,16 @@ python:
   - "3.7"
 
 env:
-  - repo_token=token SECRET_KEY='MY_SECRET_KEY' DJANGO=3.1.4 DB=sqlite3
+  - repo_token=token SECRET_KEY='MY_SECRET_KEY' DJANGO=3.1.4 DB=sqlite3 EMAIL_HOST=EMAIL_HOST EMAIL_HOST_USER=EMAIL_HOST_USER EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD DEFAULT_FROM_EMAIL=DEFAULT_FROM_EMAIL
+
 install:
   - pip install -r requirements.txt
   - pip install coveralls
+
 script:
   - python manage.py makemigrations memories
   - python manage.py migrate
   - coverage run --source=memories manage.py test
-
 
 after_success:
   coveralls
