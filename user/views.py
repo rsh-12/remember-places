@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.views import PasswordChangeView, PasswordResetView, PasswordResetDoneView, \
+    PasswordResetConfirmView
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
@@ -47,3 +48,17 @@ class UserPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     def get_success_url(self):
         messages.success(self.request, 'Password updated successfully!')
         return reverse('user:profile-update', kwargs={'pk': self.request.user.id})
+
+
+class UserPasswordResetView(PasswordResetView):
+    template_name = 'user/reset_password.html'
+    success_url = reverse_lazy('user:password_reset_done')
+
+
+class UserPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'user/password_reset_done.html'
+    success_url='/profile/reset/<uidb64>/<token>/'
+
+
+class UserPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'user/password_reset_confirm.html'
