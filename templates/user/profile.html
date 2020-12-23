@@ -1,10 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    {{ user.username }}
+    My profile
 {% endblock %}
 
 {% block content %}
     <h1>Profile</h1>
-    {{ user.first_name }}
+    <hr>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success text-center" role="alert">
+                <span>{{ message|upper }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="d-flex justify-content-around">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-secondary" type="submit" value="UPDATE">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div>
+                {% for obj in backends.associated %}
+                    {% if obj.provider == 'facebook' %}
+                        <div class="col-md-6 text-center">
+                            <img class="mob-link-right" src="{{ obj.extra_data.picture.data.url }}" alt="picture"
+                                 width="150px" height="150px"
+                                 style="border-radius: 10%">
+                        </div>
+                    {% endif %}
+                {% empty %}
+                    <img class="mob-link-right" src="{% static 'images/map.png' %}" alt="picture" width="150px"
+                         height="150px"
+                         style="border-radius: 10%">
+                {% endfor %}
+            </div>
+            <br>
+            <p>Username: <b>{{ user.username }}</b></p>
+            <p>Date joined: <b>{{ user.date_joined|date:"d.m.Y (H:i:s)" }}</b></p>
+            <span><a class="btn btn-danger" href="{% url 'user:password_change' %}">Change password</a></span>
+        </div>
+    </div>
 {% endblock %}

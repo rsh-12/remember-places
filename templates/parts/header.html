@@ -16,11 +16,11 @@
 
             {% if user.first_name %}
                 <span class="header-span mob-link-right">
-                <a class="header-links" href="{% url 'user:profile' %}">{{ user.first_name }}</a>
+                <a class="header-links" href="{% url 'user:profile-update' user.id %}">{{ user.first_name }}</a>
                 </span>
             {% else %}
                 <span class="header-span mob-link-right">
-                <a class="header-links" href="{% url 'user:profile' %}">{{ user.username }}</a>
+                <a class="header-links" href="{% url 'user:profile-update' user.id %}">{{ user.username }}</a>
                 </span>
             {% endif %}
 
@@ -40,15 +40,15 @@
                 {% endfor %}
             </span>
             <span class="logout-button header-span mob-link-right">
-                    <a class="nav-link header-links" href="">Sign out</a>
+                    <a class="nav-link header-links" href="{% url 'user:logout' %}">Sign out</a>
                 </span>
         {% else %}
             <span class=" header-span mob-link-right">
-            <a class="nav-link header-links" href="">Sign in</a>
+            <a class="nav-link header-links" href="{% url 'user:login' %}">Sign in</a>
             </span>
 
             <span class="logout-button header-span mob-link-right">
-            <a class="nav-link header-links" href="">Sign up</a>
+            <a class="nav-link header-links" href="{% url 'user:registration' %}">Sign up</a>
             </span>
         {% endif %}
         <div class="push"></div>
