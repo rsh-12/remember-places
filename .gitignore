@@ -90,3 +90,4 @@ secret_vars.py
 memories/migrations
 temp_dir/
 sent_emails
+env.sh
