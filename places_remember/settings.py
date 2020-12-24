@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social_django',
     'memories',
     'user',
+    'snowpenguin.django.recaptcha3',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +175,8 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
+
+RECAPTCHA_PUBLIC_KEY = os.environ['PUBLIC_KEY']
+RECAPTCHA_PRIVATE_KEY = os.environ['PRIVATE_KEY']
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5

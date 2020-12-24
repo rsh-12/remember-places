@@ -1,12 +1,17 @@
 from django import forms
+from snowpenguin.django.recaptcha3.fields import ReCaptchaField
 
 from memories.models import Place
 
 
 class PlaceModelForm(forms.ModelForm):
+    captcha = ReCaptchaField()
+    latitude = forms.CharField(required=True)
+    longitude = forms.CharField(required=True)
+
     class Meta:
         model = Place
-        exclude = ('user',)
+        fields = ('name', 'description', 'latitude', 'longitude', 'captcha')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form form-control col-md-6',
