@@ -1,4 +1,4 @@
-{% load static %}
+{% load static recaptcha3 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='homepage' %}
+
 </head>
 
 <body>
@@ -31,8 +35,13 @@
             {{ form.latitude.as_hidden }} {{ form.longitude.as_hidden }}
             <div class="push"></div>
 
-            {% if form.errors %}
-                <span style="color: red">Something went wrong. Please try again</span>
+            {% if form.latitude.errors or form.longitude.errors %}
+                <span style="color: red">Please select coordinates by clicking on the map!</span>
+            {% endif %}
+            <br>
+
+            {% if form.name.errors or form.description.errors %}
+                <span style="color: red">Name and description are required!</span>
             {% endif %}
 
             <p><span class="badge badge-pill badge-secondary">Name</span>
@@ -41,6 +50,7 @@
             <p><span class="badge badge-pill badge-secondary">Description</span>
                 {{ form.description }}
             </p>
+            {{ form.captcha }}
             <button type="submit" class="btn btn-dark">Create memory</button>
         </form>
     </div>

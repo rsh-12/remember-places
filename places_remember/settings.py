@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social_django',
     'memories',
     'user',
+    'snowpenguin.django.recaptcha3',
 ]
 
 MIDDLEWARE = [
@@ -168,9 +169,20 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ['EMAIL_HOST']
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+# EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST = ''
+# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
+# DEFAULT_FROM_EMAIL = os.environ['DEFAULT_FROM_EMAIL']
+DEFAULT_FROM_EMAIL = ''
+
+# RECAPTCHA_PUBLIC_KEY = os.environ['PUBLIC_KEY']
+RECAPTCHA_PUBLIC_KEY = ''
+# RECAPTCHA_PRIVATE_KEY = os.environ['PRIVATE_KEY']
+RECAPTCHA_PRIVATE_KEY = ''
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
