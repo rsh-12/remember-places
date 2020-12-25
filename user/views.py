@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView, PasswordResetView, PasswordResetDoneView, \
-    PasswordResetConfirmView, PasswordResetCompleteView, LoginView
+    PasswordResetConfirmView, PasswordResetCompleteView
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
@@ -54,6 +55,11 @@ class UserPasswordResetView(PasswordResetView):
     template_name = 'user/reset_password.html'
     success_url = reverse_lazy('user:password_reset_done')
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect('/')
+        return super(UserPasswordResetView, self).get(request, *args, **kwargs)
+
 
 class UserPasswordResetDoneView(PasswordResetDoneView):
     template_name = 'user/password_reset_done.html'
@@ -68,7 +74,3 @@ class UserPasswordResetConfirmView(PasswordResetConfirmView):
 
 class UserPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'user/password_reset_complete.html'
-
-
-# class UserLoginView(LoginView):
-#     template_name = 'registration/login.html'
