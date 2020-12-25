@@ -65,6 +65,11 @@ class UserPasswordResetDoneView(PasswordResetDoneView):
     template_name = 'user/password_reset_done.html'
     success_url = '/profile/reset/<uidb64>/<token>/'
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect('/')
+        return super(UserPasswordResetDoneView, self).get(request, *args, **kwargs)
+
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
     form_class = UserSetPasswordForm
@@ -74,3 +79,8 @@ class UserPasswordResetConfirmView(PasswordResetConfirmView):
 
 class UserPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'user/password_reset_complete.html'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect('/')
+        return super(UserPasswordResetCompleteView, self).get(request, *args, **kwargs)
