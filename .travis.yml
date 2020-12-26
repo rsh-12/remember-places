@@ -8,7 +8,6 @@ env:
     - repo_token=token
     - SECRET_KEY='MY_SECRET_KEY'
     - DJANGO=3.1.4
-    - DB=sqlite3
     - EMAIL_HOST=EMAIL_HOST
     - EMAIL_HOST_USER=EMAIL_HOST_USER
     - EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD
@@ -22,6 +21,8 @@ env:
 
 services:
   - postgresql
+before_script:
+  - psql -c 'create-database test_db;' -U postrges
 
 install:
   - pip install -r requirements.txt
