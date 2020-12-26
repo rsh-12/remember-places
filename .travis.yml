@@ -5,11 +5,6 @@ python:
 
 env:
   global:
-#    - repo_token=token
-#    - EMAIL_HOST=EMAIL_HOST
-    #    - EMAIL_HOST_USER=EMAIL_HOST_USER
-    #    - EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD
-    #    - DEFAULT_FROM_EMAIL=DEFAULT_FROM_EMAIL
     - SECRET_KEY='MY_SECRET_KEY'
     - DJANGO=3.1.4
     - PUBLIC_KEY=RECAPTCHA_PUBLIC_KEY
@@ -26,7 +21,7 @@ before_script:
   - psql -c 'CREATE DATABASE test_db;' -U postgres
 
 after_script:
-  - psql -c 'psql test_db;'
+  - psql -c '\c test_db;'
   - psql -c 'CREATE INDEX test_gin_index ON memories_place USING GIN (to_tsvector('english', name));'
 
 install:
