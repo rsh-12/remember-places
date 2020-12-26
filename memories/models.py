@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.postgres.indexes import GinIndex
+from django.db import models
 from django.urls import reverse
 
 
@@ -15,6 +16,7 @@ class Place(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        indexes = [GinIndex(fields=['name'])]
 
     def __str__(self):
         return self.name

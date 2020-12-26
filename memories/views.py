@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
 from .forms import PlaceModelForm, PlaceUpdateModelForm
 from .models import Place
+from django.db.models import Q
 
 
 # get all places
@@ -13,7 +15,10 @@ class PlaceListView(LoginRequiredMixin, ListView):
     template_name = 'memories/memories.html'
 
     def get_queryset(self):
-        return Place.objects.filter(user_id=self.request.user.id)
+        query = self.request.GET.get('q')
+        if not query:
+            return Place.objects.filter(user_id=self.request.user.id)
+        return Place.objects.filter(name__icontains=query)
 
     def get_context_data(self, **kwargs):
         context = super(PlaceListView, self).get_context_data(**kwargs)
@@ -53,3 +58,12 @@ class PlaceUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'memories/update-form.html'
     success_url = reverse_lazy('memories:memories')
 
+# class SearchPlaceListView(LoginRequiredMixin, ListView):
+#     model = Place
+#     template_name = 'memories/memories.html'
+#
+#     def get_queryset(self):
+#         query = self.request.GET.get('q')
+#         print(f'query = {query}')
+#         page_obj = Place.objects.filter(name__icontains=query)
+#         return page_obj
