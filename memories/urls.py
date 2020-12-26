@@ -12,5 +12,4 @@ urlpatterns = [
     path('map/', views.PlaceCreateView.as_view(), name='map'),
     path('delete/<int:pk>/', views.PlaceDeleteView.as_view(), name='delete'),
     path('update/<int:pk>/', views.PlaceUpdateView.as_view(), name='update'),
-    # path('search/', views.SearchPlaceListView.as_view(), name='search_places'),
 ]

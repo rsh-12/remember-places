@@ -1,12 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
 from .forms import PlaceModelForm, PlaceUpdateModelForm
 from .models import Place
-from django.db.models import Q
 
 
 # get all places
@@ -57,13 +55,3 @@ class PlaceUpdateView(LoginRequiredMixin, UpdateView):
     form_class = PlaceUpdateModelForm
     template_name = 'memories/update-form.html'
     success_url = reverse_lazy('memories:memories')
-
-# class SearchPlaceListView(LoginRequiredMixin, ListView):
-#     model = Place
-#     template_name = 'memories/memories.html'
-#
-#     def get_queryset(self):
-#         query = self.request.GET.get('q')
-#         print(f'query = {query}')
-#         page_obj = Place.objects.filter(name__icontains=query)
-#         return page_obj
