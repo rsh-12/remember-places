@@ -26,7 +26,7 @@ before_script:
   - psql -c 'CREATE DATABASE test_db;' -U postgres
 
 after_script:
-  - psql -c 'test_db;'
+  - psql -c 'psql test_db;'
   - psql -c 'CREATE INDEX test_gin_index ON memories_place USING GIN (to_tsvector('english', name));'
 
 install:
