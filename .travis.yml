@@ -20,9 +20,9 @@ services:
 before_script:
   - psql -c 'CREATE DATABASE test_db;' -U postgres
 
-after_script:
-  - psql -c '\c test_db;'
-  - psql -c 'CREATE INDEX test_gin_index ON memories_place USING GIN (to_tsvector('english', name));'
+#after_script:
+#  - psql -c '\c test_db;'
+#  - psql -c 'CREATE INDEX test_gin_index ON memories_place USING GIN (to_tsvector('english', name));'
 
 install:
   - pip install -r requirements.txt

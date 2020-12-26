@@ -17,6 +17,7 @@ class Place(models.Model):
 
     class Meta:
         ordering = ['-updated_at']
+        indexes = [models.Index(fields=['name'])]
         # indexes = [GinIndex(fields=['name'])]
 
     def __str__(self):
