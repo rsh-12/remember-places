@@ -149,7 +149,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/memories/'

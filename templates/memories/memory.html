@@ -27,8 +27,8 @@
 
         <h1 id="place-name" class="text-center">{{ place.name }}</h1>
         <div class="d-flex justify-content-between">
-            <span>{{ place.created_at|date:"d E Y, H:i" }}</span>
-            <span class="ago">{{ place.created_at|timesince }} ago</span>
+            <span>{{ place.updated_at|date:"d E Y, H:i" }}</span>
+            <span class="ago">{{ place.updated_at|timesince }} ago</span>
         </div>
         <div class="text-small">
             <span id="x">{{ place.latitude }}</span>, <span id="y">{{ place.longitude }}</span>
