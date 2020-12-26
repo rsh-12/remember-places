@@ -21,8 +21,9 @@ env:
 
 services:
   - postgresql
+
 before_script:
-  - psql -c 'create-database test_db;' -U postrges
+  - psql -c 'create database test_db;' -U postgres
 
 install:
   - pip install -r requirements.txt
