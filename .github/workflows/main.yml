@@ -28,6 +28,15 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          DB_NAME: test_db
+          DB_USER: postgres
+          DB_PASSWORD: password
+          DB_HOST: localhost
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
