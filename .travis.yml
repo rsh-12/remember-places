@@ -10,7 +10,7 @@ env:
     - PUBLIC_KEY=RECAPTCHA_PUBLIC_KEY
     - PRIVATE_KEY=RECAPTCHA_PRIVATE_KEY
     - DB_NAME='test_db'
-    - DB_USER='postgres'
+    - DB_USER='travis'
     - DB_PASSWORD=''
     - DB_HOST='localhost'
 
