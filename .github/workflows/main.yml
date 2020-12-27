@@ -9,6 +9,11 @@ env:
   DEFAULT_FROM_EMAIL: 'some@mail.com'
   PUBLIC_KEY: 'some.public.key'
   PRIVATE_KEY: 'some.private.key'
+  DB_NAME: 'test_db'
+  DB_USER: 'postgres'
+  DB_PASSWORD: 'postgres'
+  DB_HOST: 'localhost'
+
 
 # Controls when the action will run. 
 on:
@@ -30,12 +35,14 @@ jobs:
 
     services:
       postgres:
-        image: postgres:latest
+        image: postgres
         env:
-          DB_NAME: test_db
-          DB_USER: postgres
-          DB_PASSWORD: password
-          DB_HOST: localhost
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
