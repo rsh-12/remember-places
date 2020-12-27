@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, DeleteView, CreateView, U
 
 from .forms import PlaceModelForm, PlaceUpdateModelForm
 from .models import Place
+from django.db.models import Q
 
 
 # get all places
@@ -13,7 +14,10 @@ class PlaceListView(LoginRequiredMixin, ListView):
     template_name = 'memories/memories.html'
 
     def get_queryset(self):
-        return Place.objects.filter(user_id=self.request.user.id)
+        query = self.request.GET.get('q')
+        if not query:
+            return Place.objects.filter(user_id=self.request.user.id)
+        return Place.objects.filter(Q(name__icontains=query), Q(user_id=self.request.user.id))
 
     def get_context_data(self, **kwargs):
         context = super(PlaceListView, self).get_context_data(**kwargs)
@@ -52,4 +56,3 @@ class PlaceUpdateView(LoginRequiredMixin, UpdateView):
     form_class = PlaceUpdateModelForm
     template_name = 'memories/update-form.html'
     success_url = reverse_lazy('memories:memories')
-
