@@ -1,38 +1,54 @@
 [
   {
     "model": "memories.place",
-    "pk": 9,
+    "pk": 5,
     "fields": {
-      "name": "University",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum tincidunt augue non molestie. Cras nunc nisi, placerat vel cursus sed, semper id turpis. Integer quis tortor est. Integer condimentum nisl vel felis molestie, quis facilisis felis varius. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut venenatis ut tortor sit amet consequat. Nulla ac aliquam magna, eget tincidunt dui. Mauris mollis sapien eget tempor blandit. Donec scelerisque porta turpis sit amet commodo. Sed eget volutpat magna, quis faucibus lacus. In odio nulla, ullamcorper a urna nec, dapibus aliquet sapien.\r\n\r\nNam efficitur egestas elit sed posuere. Pellentesque aliquet, orci non consequat commodo, libero leo volutpat ligula, vel accumsan sapien enim eget velit. Vivamus vestibulum tempus metus id pellentesque. Etiam ac odio eget quam accumsan lobortis et nec lorem. Maecenas imperdiet eleifend augue non gravida. Vivamus viverra metus id augue vehicula varius. Suspendisse facilisis id turpis non laoreet. Integer eu faucibus eros",
-      "created_at": "2020-12-17T09:00:20.694Z",
-      "latitude": "56.8398399589274000",
-      "longitude": "60.6170306008362000",
+      "name": "Большакова",
+      "description": "улица",
+      "created_at": "2020-12-27T03:37:05.791Z",
+      "updated_at": "2020-12-27T03:37:05.791Z",
+      "latitude": "56.8210994602353950",
+      "longitude": "60.5923012856444000",
       "user": 2
     }
   },
   {
     "model": "memories.place",
-    "pk": 10,
+    "pk": 6,
     "fields": {
-      "name": "Random place",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "created_at": "2020-12-17T09:01:00.468Z",
-      "latitude": "56.8330993815385000",
-      "longitude": "60.6235436562498000",
+      "name": "Кирова",
+      "description": "Улица",
+      "created_at": "2020-12-27T03:37:17.746Z",
+      "updated_at": "2020-12-27T03:37:17.746Z",
+      "latitude": "56.8181341791276040",
+      "longitude": "60.4630402687986650",
       "user": 2
     }
   },
   {
     "model": "memories.place",
-    "pk": 11,
+    "pk": 7,
     "fields": {
-      "name": "Stanovaya",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "created_at": "2020-12-17T09:01:31.704Z",
-      "latitude": "56.8960751538940000",
-      "longitude": "60.9960764011496000",
-      "user": 2
+      "name": "Московская",
+      "description": "улица",
+      "created_at": "2020-12-27T04:00:59.985Z",
+      "updated_at": "2020-12-27T04:00:59.985Z",
+      "latitude": "56.8282998762247000",
+      "longitude": "60.5799416665037500",
+      "user": 3
+    }
+  },
+  {
+    "model": "memories.place",
+    "pk": 8,
+    "fields": {
+      "name": "Исток",
+      "description": "Улица",
+      "created_at": "2020-12-27T04:01:10.090Z",
+      "updated_at": "2020-12-27T04:01:10.090Z",
+      "latitude": "56.8167691292580400",
+      "longitude": "60.6805352333983100",
+      "user": 3
     }
   }
 ]
