@@ -9,10 +9,10 @@ env:
   DEFAULT_FROM_EMAIL: 'some@mail.com'
   PUBLIC_KEY: 'some.public.key'
   PRIVATE_KEY: 'some.private.key'
-  DB_NAME: 'test_db'
+  DB_NAME: 'github_actions'
   DB_USER: 'postgres'
   DB_PASSWORD: 'postgres'
-  DB_HOST: 'localhost'
+  DB_HOST: '127.0.0.1'
 
 
 # Controls when the action will run. 
@@ -35,15 +35,17 @@ jobs:
 
     services:
       postgres:
-        image: postgres
+        image: postgres:10.8
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: github_actions
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
 
       # Runs a set of commands using the runners shell
       - name: Set up Python 3.7
