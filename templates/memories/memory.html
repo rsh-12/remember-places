@@ -1,4 +1,5 @@
 {% load static %}
+{% load cache %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +46,8 @@
     <script type="text/javascript" src="{% static 'js/show-place.js' %}"></script>
     <div class="push"></div>
 </div>
-{% include 'parts/footer.html' %}
+{% cache 3600 footer %}
+    {% include 'parts/footer.html' %}
+{% endcache %}
 </body>
 </html>
