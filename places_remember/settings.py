@@ -59,6 +59,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'places_remember.urls'
 
+DEFENDER_LOCKOUT_TEMPLATE = 'lockout.html'
+DEFENDER_COOLOFF_TIME = 60 * 30
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
