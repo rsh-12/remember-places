@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('memories.urls', namespace='memories')),
     path('profile/', include('user.urls', namespace='profile')),
     path('admin/', admin.site.urls),
+    path('admin/defender/', include('defender.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
 ]
