@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'memories',
     'user',
     'snowpenguin.django.recaptcha3',
+    'defender',
 ]
 
 MIDDLEWARE = [
@@ -53,9 +54,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
 ]
 
 ROOT_URLCONF = 'places_remember.urls'
+
+DEFENDER_LOCKOUT_TEMPLATE = 'lockout.html'
+DEFENDER_COOLOFF_TIME = 60 * 30
 
 TEMPLATES = [
     {
@@ -100,6 +105,17 @@ DATABASES = {
         'PASSWORD': os.environ['DB_PASSWORD'],
         'HOST': os.environ['DB_HOST'],
         'PORT': 5432,
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'custom_cache_table',
+        'TIMEOUT': 60 * 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 300
+        }
     }
 }
 

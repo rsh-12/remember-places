@@ -60,7 +60,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run manage.py makemigrations
-        run: | 
+        run: |
           python manage.py makemigrations
           python manage.py makemigrations memories
 
