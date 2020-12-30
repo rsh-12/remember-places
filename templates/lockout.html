@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Oops...</title>
-</head>
-<body>
-<div>
-    The current failure limit: {{ failure_limit }}
-</div>
-<div>
-    You can only login after: {{ cooloff_time_minutes }} minutes
-</div>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    Oops...
+{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center">
+        The current failure limit: {{ failure_limit }}
+    </h2>
+    <h2 class="text-center">
+        You can only login after: {{ cooloff_time_minutes }} minutes
+    </h2>
+
+{% endblock %}
